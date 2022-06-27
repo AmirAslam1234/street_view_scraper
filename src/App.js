@@ -8,6 +8,8 @@ import {
 import Home from "./Pages/Home";
 import About from "./Pages/About";
 import Footer from "./Components/Footer";
+import PricingPage from "./Pages/PricingPage";
+import Contact from "./Pages/ContactUs";
 
 function App() {
   const location = useLocation;
@@ -18,6 +20,8 @@ function App() {
         <Routes key={location.pathname}>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/pricing" element={<PricingPage />} />
+          <Route path="/contact-us" element={<Contact />} />
         </Routes>
       </Router>
 

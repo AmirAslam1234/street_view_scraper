@@ -13,7 +13,7 @@ function Header() {
       <div className="w-full flex items-center justify-between px-5 py-4 bg-white">
         <span className="sm:px-5 md:pl-10 text-3xl">logo</span>
 
-        <div className="space-x-10 text-sm hidden lg:flex justify-center">
+        <div className="space-x-2 text-sm hidden lg:flex justify-center">
           <NavLink
             end
             style={({ isActive }) => ({
@@ -36,6 +36,30 @@ function Header() {
             to="/about"
           >
             About
+          </NavLink>
+
+          <NavLink
+            end
+            style={({ isActive }) => ({
+              color: isActive ? "white" : "",
+              backgroundColor: isActive ? "#10B981" : "",
+            })}
+            className="p-2 pl-8 lg:px-4 md:mx-2 text-gray-900 rounded hover:bg-emerald-500 hover:text-gray-50 transition-colors duration-300"
+            to="/pricing"
+          >
+            Pricing
+          </NavLink>
+
+          <NavLink
+            end
+            style={({ isActive }) => ({
+              color: isActive ? "white" : "",
+              backgroundColor: isActive ? "#10B981" : "",
+            })}
+            className="p-2 pl-8 lg:px-4 md:mx-2 text-gray-900 rounded hover:bg-emerald-500 hover:text-gray-50 transition-colors duration-300"
+            to="/contact-us"
+          >
+            Contact
           </NavLink>
         </div>
 
