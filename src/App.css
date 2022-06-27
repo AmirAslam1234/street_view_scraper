@@ -1,0 +1,12 @@
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+.my-background {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
