@@ -109,7 +109,7 @@ const AdminDashboard = (props) => {
                   className="text-[13px] self-center font-light cursor-pointer"
                   to="dashboard"
                 >
-                  Dashboard
+                  Services
                 </NavLink>
               </div>
             </NavLink>
@@ -483,12 +483,7 @@ const AdminDashboard = (props) => {
                   <div className="container py-3 pl-5 pr-2 flex flex-col justify-between">
                     <div className="w-full bg-gray-900">
                       {/* BOTTOM LEFT BUTTON  */}
-                      <div
-                        onClick={() => {
-                          navigate("/admin-login");
-                        }}
-                        className="w-full pb-5 flex text-gray-500 hover:text-white cursor-pointer "
-                      >
+                      <div className="w-full pb-5 flex text-gray-500 hover:text-white cursor-pointer ">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           className="h-5 w-5"
@@ -518,7 +513,12 @@ const AdminDashboard = (props) => {
               <h2 className=" pl-3 md:px-0 self-center text-gray-800 text-lg">
                 Admin-Dashboard
               </h2>
-              <button className="px-5 py-3 bg-emerald-500 text-gray-100 hover:bg-emerald-400 text-sm rounded-md">
+              <button
+                onClick={() => {
+                  navigate("/admin-login");
+                }}
+                className="px-5 py-3 bg-emerald-500 text-gray-100 hover:bg-emerald-400 text-sm rounded-md"
+              >
                 Log Out
               </button>
             </div>

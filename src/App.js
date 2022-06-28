@@ -7,11 +7,11 @@ import {
 } from "react-router-dom";
 import Home from "./Pages/Home";
 import About from "./Pages/About";
-import Footer from "./Components/Footer";
 import PricingPage from "./Pages/PricingPage";
 import Contact from "./Pages/ContactUs";
 import AdminDashboard from "./Pages/AdminDashboard";
 import Test from "./Components/Test";
+import Login from "./Pages/Login";
 
 function App() {
   const location = useLocation;
@@ -29,6 +29,8 @@ function App() {
           <Route path="admin-dashboard" element={<AdminDashboard />}>
             <Route path="test" element={<Test />} />
           </Route>
+
+          <Route path="/admin-login" element={<Login />} />
         </Routes>
       </Router>
     </div>
