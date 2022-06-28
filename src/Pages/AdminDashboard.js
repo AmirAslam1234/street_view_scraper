@@ -185,7 +185,7 @@ const AdminDashboard = () => {
       {/* HEADER  */}
       <div className=" w-full lg:w-full flex flex-col items-start">
         <div className="w-full bg-gray-100 relative flex flex-col items-center justify-center h-fit">
-          <div className="w-full bg-gray-100 top-0 flex justify-between items-center px-3 md:px-0 md:pl-7 md:pr-7 py-4">
+          <div className="w-full bg-gray-100 top-0 flex justify-between items-center px-3 md:px-0 md:pl-7 md:pr-7 py-6">
             {/* Mobile Menu  */}
             <div className="flex md:hidden items-center">
               <FiMenu
@@ -562,11 +562,6 @@ const AdminDashboard = () => {
         {/* DASHBOARD SCREEN  */}
         <div className=" py-10 px-3 md:px-0 w-full md:w-full md:h-full flex justify-center items-start">
           <Outlet />
-          {/* {screen === 1 ? <MainDashboardAdmin mode={nightMode} /> : ""}
-          {screen === 2 ? <ManageInstructors mode={nightMode} /> : ""}
-          {screen === 3 ? <ManageCourses mode={nightMode} /> : ""}
-          {screen === 4 ? <EditProfile mode={nightMode} /> : ""}
-          {screen === 5 ? <ChangePassword mode={nightMode} /> : ""} */}
         </div>
       </div>
     </div>
