@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import { useNavigate, Outlet, NavLink } from "react-router-dom";
 import { FiMenu } from "react-icons/fi";
 import { AiOutlineQuestion } from "react-icons/ai";
-import { MdDashboardCustomize, MdAttachMoney } from "react-icons/md";
+import {
+  MdDashboardCustomize,
+  MdAttachMoney,
+  MdOutlineAddTask,
+} from "react-icons/md";
 import logo from "../Assets/Images/logo_dark.png";
 
 const AdminDashboard = (props) => {
@@ -99,7 +103,7 @@ const AdminDashboard = (props) => {
               className="pl-5 py-4 w-full flex justify-between text-gray-800 hover:bg-emerald-500 hover:text-gray-100"
               to="dashboard"
             >
-              <MdDashboardCustomize size="1.3em" className="mr-3 self-center" />
+              <MdOutlineAddTask size="1.3em" className="mr-3 self-center" />
               <div className="flex w-full">
                 <NavLink
                   end
