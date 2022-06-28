@@ -6,6 +6,13 @@
     background-color: rgba(0, 0, 0, 0.3);
 }
 
+.mobile-bg {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://images.unsplash.com/photo-1614288361475-e56d8c75cfd6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 670px;
+}
+
 
 @tailwind base;
 @tailwind components;

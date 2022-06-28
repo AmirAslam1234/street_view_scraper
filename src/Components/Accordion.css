@@ -1,8 +1,6 @@
 
 
-.wrapper{
-    width: 100%;
-}
+
 
 .accordian {
     width: 100%;
@@ -51,7 +49,7 @@
     }
     
     .accordian {
-        width: 40%;
+        width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;

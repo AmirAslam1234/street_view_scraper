@@ -3,7 +3,7 @@ import { AiOutlineCheckCircle, AiFillFire } from "react-icons/ai";
 
 function PricingCard() {
   return (
-    <div className="w-72 xl:w-[370px] py-10 bg-white rounded-lg hover:-translate-y-2 hover:duration-500 hover:shadow-lg hover:shadow-emerald-100 ">
+    <div className="w-96 lg:w-[370px] py-10 bg-white rounded-lg hover:-translate-y-2 hover:duration-500 hover:shadow-lg hover:shadow-emerald-100 ">
       <div className="w-full pl-10 lg:pl-16 text-2xl">
         <p>Free</p>
       </div>

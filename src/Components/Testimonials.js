@@ -13,8 +13,8 @@ function Testimonials() {
   return (
     <section className="bg-gray-100 pt-20 pb-20">
       <div className="w-full">
-        <div className="w-full text-center flex flex-col items-center">
-          <h2 className="lg:w-1/2 leading-tight w-full text-4xl font-bold pb-5">
+        <div className="w-full text-center pb-10 lg:pb-0 flex flex-col items-center">
+          <h2 className="lg:w-1/2 leading-tight w-full text-4xl font-bold px-5 pb-5">
             What Our Clients Said About
             <p className="text-red-500">Street View Spectator</p>
           </h2>
@@ -55,7 +55,7 @@ function Testimonials() {
             >
               <SwiperSlide className="flex bg-gray-100 items-end rounded-md pb-10 justify-end">
                 <img
-                  className=" absolute bottom-10 -left-0 z-20"
+                  className="absolute bottom-10 -left-0 z-20"
                   src={feedback1}
                   alt=""
                 />

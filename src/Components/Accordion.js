@@ -53,7 +53,9 @@ function EditCourseAccordion(props) {
       {/* Accordion 1  */}
       <div className="accordian">
         <div
-          className={Accord == 1 ? "item active py-0" : "item py-0 w-full"}
+          className={
+            Accord == 1 ? "item active py-0 w-full" : "item py-0 w-full"
+          }
           onClick={() => toggle()}
         >
           <div

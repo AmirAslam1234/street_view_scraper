@@ -10,6 +10,8 @@ import About from "./Pages/About";
 import Footer from "./Components/Footer";
 import PricingPage from "./Pages/PricingPage";
 import Contact from "./Pages/ContactUs";
+import AdminDashboard from "./Pages/AdminDashboard";
+import Test from "./Components/Test";
 
 function App() {
   const location = useLocation;
@@ -22,10 +24,13 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/pricing" element={<PricingPage />} />
           <Route path="/contact-us" element={<Contact />} />
+          <Route path="/admin-dashboard" element={<AdminDashboard />} />
+
+          <Route path="admin-dashboard" element={<AdminDashboard />}>
+            <Route path="test" element={<Test />} />
+          </Route>
         </Routes>
       </Router>
-
-      <Footer />
     </div>
   );
 }

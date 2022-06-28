@@ -12,8 +12,16 @@ const Footer = () => {
     <>
       <footer class="text-gray-100 body-font bg-gradient-to-tl to-black from-blue-900">
         <div class="container px-5 py-20 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
-          <div class="w-80 -mt-10 flex-shrink-0 md:mx-0 mx-auto text-center">
-            <img className="w-5/6" src={logoDark} alt="" />
+          <div class="w-80 md:pl-10 flex flex-col justify-center md:justify-start flex-shrink-0 md:mx-0 mx-auto text-center md:text-start">
+            <div className="w-full flex justify-center">
+              <img className="w-3/6 pb-5 " src={logoDark} alt="" />
+            </div>
+            <p className="text-sm font-extralight text-gray-400">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis
+              similique numquam, reiciendis doloremque sunt voluptatem sit
+              temporibus quis delectus nobis, commodi id, quasi earum porro
+              veniam laudantium? Tempore, voluptates asperiores?
+            </p>
           </div>
 
           <div class="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">

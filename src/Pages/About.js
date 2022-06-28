@@ -3,6 +3,7 @@ import GetToKnowUs from "../Components/GetToKnowUs";
 import Header from "../Components/Header";
 import aboutimg from "../Assets/Images/about-img.jpg";
 import { AiOutlineCheckCircle } from "react-icons/ai";
+import Footer from "../Components/Footer";
 
 function About() {
   return (
@@ -20,11 +21,11 @@ function About() {
       <section className="py-20 ">
         <div className="w-full flex flex-col lg:flex-row ">
           {/* Left HAND SIDE  */}
-          <div className="w-full lg:w-1/2 flex flex-col px-5 lg:pl-20">
+          <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left  px-5 lg:pl-20">
             <p className=" text-emerald-500 py-1">How We Are Featured</p>
 
             {/* left or heading side  */}
-            <div className="w-full">
+            <div className="w-full flex flex-col items-center lg:items-start text-center lg:text-left">
               {" "}
               <h2 className="text-4xl font-bold py-3">
                 Take Your Business To The Next Level
@@ -111,6 +112,8 @@ function About() {
       </section>
 
       <GetToKnowUs />
+
+      <Footer />
     </div>
   );
 }

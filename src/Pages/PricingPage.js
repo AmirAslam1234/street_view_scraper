@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "../Components/Footer";
 import GetToKnowUs from "../Components/GetToKnowUs";
 import Header from "../Components/Header";
 import Pricing from "../Components/Pricing";
@@ -20,6 +21,8 @@ function PricingPage() {
       </section>
 
       <GetToKnowUs />
+
+      <Footer />
     </div>
   );
 }

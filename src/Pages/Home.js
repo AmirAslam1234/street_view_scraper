@@ -15,6 +15,7 @@ import Header from "../Components/Header";
 import Pricing from "../Components/Pricing";
 import GetToKnowUs from "../Components/GetToKnowUs";
 import Testimonials from "../Components/Testimonials";
+import Footer from "../Components/Footer";
 
 function Home() {
   return (
@@ -39,7 +40,7 @@ function Home() {
               solve the needs of your customers and develop innovation. Lorem
               ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.
             </p>
-            <div className="w-full flex space-x-5">
+            <div className="w-full flex justify-center lg:justify-start space-x-5">
               <button className="px-6 py-3 flex items-center text-white hover:text-black text-sm bg-gray-800 hover:bg-white rounded-md">
                 <AiFillFire
                   size="1.3em"
@@ -72,7 +73,7 @@ function Home() {
             </h2>
           </div>
 
-          <div className="w-full">
+          <div className="w-full pb-20">
             <ul className="grid md:grid-cols-2 lg:grid-cols-3 place-items-center gap-5 md:gap-10 md:m-6 text-center">
               {/* cards */}
               <FeatureCard />
@@ -90,8 +91,8 @@ function Home() {
       <section>
         <div className="w-full flex flex-col lg:flex-row py-20">
           {/* LEFT HAND SIDE  */}
-          <div className="w-full lg:w-1/2 flex justify-center items-center pt-10 lg:pt-0">
-            <img className="w-5/6" src={feature1} alt="" />
+          <div className="w-full lg:w-1/2 flex justify-center items-center pb-10 lg:pb-0 lg:pt-10">
+            <img className="w-full lg:w-5/6" src={feature1} alt="" />
           </div>
 
           {/* RIGHT HAND SIDE  */}
@@ -169,7 +170,7 @@ function Home() {
       <section className="py-20 bg-gray-100">
         <div className="w-full text-center flex flex-col items-center">
           <h2 className="text-4xl font-bold pb-5">More To Discover</h2>
-          <p className="w-1/2 pb-20">
+          <p className="w-1/2 lg:pb-20">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad atque
             reprehenderit maxime totam blanditiis molestias laborum nam, dolores
             quo provident.
@@ -177,14 +178,14 @@ function Home() {
         </div>
         <div className="w-full flex flex-col lg:flex-row ">
           {/* LEFT HAND SIDE  */}
-          <div className="w-full lg:w-1/2 flex justify-center items-center pt-10 lg:pt-0">
+          <div className="w-full lg:w-1/2 flex justify-center items-center pb-10 lg:pb-0 pt-10 lg:pt-0">
             <img className="w-full" src={feature2} alt="" />
           </div>
 
           {/* RIGHT HAND SIDE  */}
           <div className="w-full lg:w-1/2 flex flex-col px-5 lg:px-0 lg:pr-10">
             {/* SERVICE 1  */}
-            <div className="w-full flex flex-col pb-2">
+            <div className="w-full flex flex-col items-center lg:items-start pb-2">
               {/* icon bg  */}
               <div className="mr-7 py-1 px-1 bg-emerald-500 rounded-full text-white w-fit">
                 <p className="px-2 py-1">01</p>
@@ -192,7 +193,7 @@ function Home() {
             </div>
 
             {/* right or heading side  */}
-            <div className="w-full">
+            <div className="w-full flex flex-col items-center lg:items-start text-center lg:text-left">
               {" "}
               <h2 className="text-xl font-bold py-2">Getting Started Page</h2>
               <p className="text-gray-500">
@@ -252,12 +253,12 @@ function Home() {
       </section>
 
       {/* More to discover 2 */}
-      <section className="pt-10 bg-gray-100">
-        <div className="w-full flex flex-col lg:flex-row ">
+      <section className="lg:pt-10 bg-gray-100">
+        <div className="w-full flex flex-col-reverse lg:flex-row ">
           {/* Left HAND SIDE  */}
           <div className="w-full lg:w-1/2 flex flex-col px-5 lg:px-10">
             {/* SERVICE 1  */}
-            <div className="w-full flex flex-col pb-2">
+            <div className="w-full pt-10 lg:pt-0 flex flex-col items-center lg:items-start pb-2">
               {/* icon bg  */}
               <div className="mr-7 py-1 px-1 bg-emerald-500 rounded-full text-white w-fit">
                 <p className="px-2 py-1">02</p>
@@ -265,7 +266,7 @@ function Home() {
             </div>
 
             {/* left or heading side  */}
-            <div className="w-full">
+            <div className="w-full flex flex-col items-center lg:items-start text-center lg:text-start">
               {" "}
               <h2 className="text-xl font-bold py-2">
                 Outdated Comments Toggling
@@ -325,14 +326,14 @@ function Home() {
           </div>
 
           {/* Right HAND SIDE  */}
-          <div className="w-full lg:w-1/2 flex justify-center items-center pt-10 lg:pt-0">
+          <div className="w-full lg:w-1/2 flex justify-center items-center">
             <img className="w-full" src={feature3} alt="" />
           </div>
         </div>
       </section>
 
       {/* More to discover 3 */}
-      <section className="pt-10 pb-20 bg-gray-100">
+      <section className="lg:pt-10 pb-20 bg-gray-100">
         <div className="w-full flex flex-col lg:flex-row ">
           {/* LEFT HAND SIDE  */}
           <div className="w-full lg:w-1/2 flex justify-center items-center pt-10 lg:pt-0">
@@ -340,9 +341,9 @@ function Home() {
           </div>
 
           {/* RIGHT HAND SIDE  */}
-          <div className="w-full lg:w-1/2 flex flex-col px-5 lg:px-10">
+          <div className="w-full pt-10 lg:pt-0 lg:w-1/2 flex flex-col px-5 lg:px-10">
             {/* SERVICE 1  */}
-            <div className="w-full flex flex-col pb-2">
+            <div className="w-full flex flex-col items-center lg:items-start pb-2">
               {/* icon bg  */}
               <div className="mr-7 py-1 px-1 bg-emerald-500 rounded-full text-white w-fit">
                 <p className="px-2 py-1">03</p>
@@ -350,7 +351,7 @@ function Home() {
             </div>
 
             {/* right or heading side  */}
-            <div className="w-full">
+            <div className="w-full flex flex-col items-center lg:items-start text-center lg:text-left">
               {" "}
               <h2 className="text-xl font-bold py-2">
                 Code Review Illustrators
@@ -480,6 +481,8 @@ function Home() {
       <section className="py-20">
         <GetToKnowUs />
       </section>
+
+      <Footer />
     </div>
   );
 }
