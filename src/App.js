@@ -10,8 +10,9 @@ import About from "./Pages/About";
 import PricingPage from "./Pages/PricingPage";
 import Contact from "./Pages/ContactUs";
 import AdminDashboard from "./Pages/AdminDashboard";
-import Test from "./Components/Test";
 import Login from "./Pages/Login";
+import SignUp from "./Pages/SignUp";
+import MainDashboard from "./Components/MainDashboard";
 
 function App() {
   const location = useLocation;
@@ -27,10 +28,11 @@ function App() {
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
 
           <Route path="admin-dashboard" element={<AdminDashboard />}>
-            <Route path="test" element={<Test />} />
+            <Route path="main-dashboard" element={<MainDashboard />} />
           </Route>
 
           <Route path="/admin-login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
         </Routes>
       </Router>
     </div>

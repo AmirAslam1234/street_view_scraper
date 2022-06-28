@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import "../App.css";
 import { useNavigate, Outlet, NavLink } from "react-router-dom";
 import { FiMenu } from "react-icons/fi";
-import { AiOutlineQuestion } from "react-icons/ai";
+import { AiOutlineQuestion, AiOutlineCloseCircle } from "react-icons/ai";
+import { FaUser } from "react-icons/fa";
 import {
   MdDashboardCustomize,
   MdAttachMoney,
@@ -9,7 +11,7 @@ import {
 } from "react-icons/md";
 import logo from "../Assets/Images/logo_dark.png";
 
-const AdminDashboard = (props) => {
+const AdminDashboard = () => {
   const [active, setActive] = useState(1);
   const [active2, setActive2] = useState(0);
   const [nightMode, setNightMode] = useState(
@@ -17,6 +19,7 @@ const AdminDashboard = (props) => {
   );
   const [Accordion, setAccordion] = useState(0);
   const [showMenu, setShowMenu] = useState(false);
+  const [UserModal, setUserModal] = useState(false);
 
   let navigate = useNavigate();
 
@@ -79,7 +82,7 @@ const AdminDashboard = (props) => {
                 toggle2();
               }}
               className="pl-5 py-4 w-full flex justify-between text-gray-800 hover:bg-emerald-500 hover:text-gray-100"
-              to="test"
+              to="main-dashboard"
             >
               <MdDashboardCustomize size="1.3em" className="mr-3 self-center" />
               <div className="flex w-full">
@@ -517,14 +520,42 @@ const AdminDashboard = (props) => {
               <h2 className=" pl-3 md:px-0 self-center text-gray-800 text-lg">
                 Admin-Dashboard
               </h2>
-              <button
-                onClick={() => {
-                  navigate("/admin-login");
-                }}
-                className="px-5 py-3 bg-emerald-500 text-gray-100 hover:bg-emerald-400 text-sm rounded-md"
-              >
-                Log Out
-              </button>
+              <span className="flex space-x-3">
+                <FaUser size="1.2em" className="self-center" />
+                <h2
+                  onClick={() => setUserModal(!UserModal)}
+                  className="self-center text-sm text-gray-400 cursor-pointer hover:underline"
+                >
+                  User Info
+                </h2>
+              </span>
+
+              {UserModal === true ? (
+                <div
+                  onClick={() => setUserModal(!UserModal)}
+                  className=" w-screen h-screen absolute top-0 right-0 user-modal flex justify-end"
+                >
+                  <div className="w-2/12 h-fit flex flex-col relative mt-16 mr-10 bg-white border rounded-lg p-5 text-xs">
+                    <AiOutlineCloseCircle
+                      onClick={() => setUserModal(!UserModal)}
+                      size="1.6em"
+                      className="absolute top-2 right-3 cursor-pointer hover:text-gray-400"
+                    />
+                    <a className="pb-2 cursor-pointer hover:underline hover:text-emerald-500">
+                      View Profile
+                    </a>
+                    <a className="pb-2 cursor-pointer hover:underline hover:text-emerald-500">
+                      Edit Profile
+                    </a>
+                    <a
+                      onClick={() => navigate("/admin-login")}
+                      className="cursor-pointer hover:underline hover:text-emerald-500"
+                    >
+                      Log Out
+                    </a>
+                  </div>
+                </div>
+              ) : null}
             </div>
           </div>
         </div>

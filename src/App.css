@@ -13,6 +13,10 @@
     background-size: 670px;
 }
 
+.user-modal {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
 
 @tailwind base;
 @tailwind components;

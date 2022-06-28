@@ -145,7 +145,7 @@ function Header() {
             <AiFillFire size="1.3em" className="mr-2 self-center" /> Get Started
           </button>
           <button
-            onClick={() => navigate("/admin-dashboard")}
+            onClick={() => navigate("/admin-login")}
             className="px-6 py-4 hidden sm:flex items-center text-white text-sm bg-gray-800 hover:bg-emerald-500 rounded-md"
           >
             <BiLogIn size="1.3em" className="mr-2 self-center" /> Login

@@ -14,7 +14,7 @@ function Contact() {
         </div>
       </section>
 
-      <section>
+      <section className="py-10">
         <div class="grid grid-cols-1">
           <div class="p-5">
             <h1 class="text-center text-2xl	 mb-10">Contact Us Now</h1>
