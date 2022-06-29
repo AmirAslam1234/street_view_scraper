@@ -84,7 +84,7 @@ function Login() {
             <div class="text-right">
               <a
                 onClick={() => setForgotPass(!ForgotPass)}
-                class="text-red-600"
+                class="text-red-600 cursor-pointer"
               >
                 Forgot your password?
               </a>

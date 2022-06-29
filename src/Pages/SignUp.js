@@ -9,7 +9,7 @@ function SignUp() {
       <div class="hidden lg:flex justify-center items-center w-5/12 h-full bg-black ">
         <img src={logo} class="w-1/2 mr-14 object-cover" />
       </div>
-      <div class="w-full lg:w-7/12 overflow-scroll py-10 relative">
+      <div class="w-full lg:w-7/12 scroll overflow-y-scroll py-10 relative">
         <a
           href="#"
           class="absolute text-3xl text-blue-400 cursor-pointer top-0 right-0 mt-6 mr-8"
@@ -51,7 +51,7 @@ function SignUp() {
                     type="text"
                     name="username"
                     class="w-full border border-black-300 rounded-sm px-4 py-3 outline-none transition-colors duration-150 ease-in-out focus:border-blue-400"
-                    placeholder="Your Username"
+                    placeholder="Your First Name"
                   />
                 </div>
               </div>
@@ -61,12 +61,61 @@ function SignUp() {
               <div class="">
                 <div class="">
                   <input
+                    type="text"
+                    name="username"
+                    class="w-full border border-black-300 rounded-sm px-4 py-3 outline-none transition-colors duration-150 ease-in-out focus:border-blue-400"
+                    placeholder="Your Last Name"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="my-6">
+              <div class="">
+                <div class="">
+                  <input
+                    type="text"
+                    name="username"
+                    class="w-full border border-black-300 rounded-sm px-4 py-3 outline-none transition-colors duration-150 ease-in-out focus:border-blue-400"
+                    placeholder="Your Username"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-6">
+              <div class="">
+                <div class="">
+                  <input
                     type="email"
                     name="email"
                     class="w-full border border-black-300 rounded-sm px-4 py-3 outline-none transition-colors duration-150 ease-in-out focus:border-blue-400"
                     placeholder="Your email address"
                   />
                 </div>
+              </div>
+            </div>
+
+            <div class="mb-6 mt-3">
+              <div class="">
+                <label
+                  htmlFor="PlanDetails"
+                  className="flex flex-col items-start text-gray-500"
+                >
+                  Plan Details
+                  <select
+                    type="select"
+                    name="PlanDetails"
+                    class="w-full border mt-1 border-black-300 rounded-sm px-4 py-3 outline-none transition-colors duration-150 ease-in-out focus:border-blue-400"
+                    placeholder="Your Plan Details"
+                  >
+                    <option value="Free">Free ($0.00) </option>
+                    <option value="Standard">Standard ($50.00) / month </option>
+                    <option value="Premium">Premium ($100.00) / month </option>
+                    <option value="Standard">Standard ($550.00) / year </option>
+                    <option value="Premium">Premium ($1100.00) / year </option>
+                  </select>
+                </label>
               </div>
             </div>
 
