@@ -19,13 +19,59 @@ function SignUp() {
     );
     const indexSpace = UserName.search(" ");
 
+    const indexSpace2 = FirstName.replace(/^\s+|\s+$|\s+(?=\s)/g, "");
+    const nameCharacter = FirstName.search(
+      /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/
+    );
+
+    const indexSpace3 = FirstName.replace(/^\s+|\s+$|\s+(?=\s)/g, "");
+    const nameCharacter2 = FirstName.search(
+      /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/
+    );
+
     if (FirstName === "") {
       document.getElementById("first_name").style.display = "block";
-    } else document.getElementById("first_name").style.display = "none";
+      document.getElementById("first_name2").style.display = "none";
+      document.getElementById("first_name3").style.display = "none";
+    } else if (FirstName.length < 3) {
+      document.getElementById("first_name2").style.display = "block";
+      document.getElementById("first_name").style.display = "none";
+      document.getElementById("first_name3").style.display = "none";
+    } else if (nameCharacter >= 0) {
+      document.getElementById("first_name3").style.display = "block";
+      document.getElementById("first_name2").style.display = "none";
+      document.getElementById("first_name").style.display = "none";
+    } else if (FirstName !== indexSpace2) {
+      document.getElementById("first_name3").style.display = "block";
+      document.getElementById("first_name2").style.display = "none";
+      document.getElementById("first_name").style.display = "none";
+    } else {
+      document.getElementById("first_name3").style.display = "none";
+      document.getElementById("first_name2").style.display = "none";
+      document.getElementById("first_name").style.display = "none";
+    }
 
     if (LastName === "") {
       document.getElementById("last_name").style.display = "block";
-    } else document.getElementById("last_name").style.display = "none";
+      document.getElementById("last_name2").style.display = "none";
+      document.getElementById("last_name3").style.display = "none";
+    } else if (LastName.length < 3) {
+      document.getElementById("last_name2").style.display = "block";
+      document.getElementById("last_name").style.display = "none";
+      document.getElementById("last_name3").style.display = "none";
+    } else if (nameCharacter2 >= 0) {
+      document.getElementById("last_name3").style.display = "block";
+      document.getElementById("last_name2").style.display = "none";
+      document.getElementById("last_name").style.display = "none";
+    } else if (LastName !== indexSpace3) {
+      document.getElementById("last_name3").style.display = "block";
+      document.getElementById("last_name2").style.display = "none";
+      document.getElementById("last_name").style.display = "none";
+    } else {
+      document.getElementById("last_name3").style.display = "none";
+      document.getElementById("last_name2").style.display = "none";
+      document.getElementById("last_name").style.display = "none";
+    }
 
     if (UserName === "") {
       document.getElementById("user_name").style.display = "block";
@@ -171,7 +217,19 @@ function SignUp() {
                     id="first_name"
                     className="text-red-500 hidden ml-3 text-xs font-light self-center"
                   >
-                    (First Name is not filled!)
+                    (First name is not filled!)
+                  </p>
+                  <p
+                    id="first_name2"
+                    className="text-red-500 hidden ml-3 text-xs font-light self-center"
+                  >
+                    (First name is too short!)
+                  </p>
+                  <p
+                    id="first_name3"
+                    className="text-red-500 hidden ml-3 text-xs font-light self-center"
+                  >
+                    (Invalid Name!)
                   </p>
                 </div>
                 <input
@@ -192,7 +250,19 @@ function SignUp() {
                     id="last_name"
                     className="text-red-500 hidden ml-3 text-xs font-light self-center"
                   >
-                    (Last Name is not filled!)
+                    (Last name is not filled!)
+                  </p>
+                  <p
+                    id="last_name2"
+                    className="text-red-500 hidden ml-3 text-xs font-light self-center"
+                  >
+                    (Last name is too short!)
+                  </p>
+                  <p
+                    id="last_name3"
+                    className="text-red-500 hidden ml-3 text-xs font-light self-center"
+                  >
+                    (Invalid Name!)
                   </p>
                 </div>
                 <input
