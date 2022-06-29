@@ -81,7 +81,7 @@ const AdminDashboard = () => {
                 setActive2(0);
                 toggle2();
               }}
-              className="pl-5 py-4 w-full flex justify-between text-gray-800 hover:bg-emerald-500 hover:text-gray-100"
+              className="pl-5 py-4 w-full flex justify-between text-gray-800 hover:text-emerald-500"
               to="main-dashboard"
             >
               <MdDashboardCustomize size="1.3em" className="mr-3 self-center" />
@@ -97,27 +97,21 @@ const AdminDashboard = () => {
               end
               style={({ isActive }) => ({
                 color: isActive ? "white" : "",
+                backgroundColor: isActive ? "#10B981" : "",
               })}
               onClick={() => {
                 setActive(4);
                 setActive2(0);
                 toggle2();
               }}
-              className="pl-5 py-4 w-full flex justify-between text-gray-800 hover:bg-emerald-500 hover:text-gray-100"
-              to="dashboard"
+              className="pl-5 py-4 w-full flex justify-between text-gray-800 hover:text-emerald-500"
+              to="manage-plans"
             >
               <MdOutlineAddTask size="1.3em" className="mr-3 self-center" />
               <div className="flex w-full">
-                <NavLink
-                  end
-                  style={({ isActive }) => ({
-                    color: isActive ? "white" : "",
-                  })}
-                  className="text-[13px] self-center font-light cursor-pointer"
-                  to="dashboard"
-                >
-                  Services
-                </NavLink>
+                <div className="text-[13px] self-center font-light cursor-pointer">
+                  Manage Plans
+                </div>
               </div>
             </NavLink>
 
@@ -126,27 +120,21 @@ const AdminDashboard = () => {
               end
               style={({ isActive }) => ({
                 color: isActive ? "white" : "",
+                backgroundColor: isActive ? "#10B981" : "",
               })}
               onClick={() => {
                 setActive(2);
                 setActive2(0);
                 toggle2();
               }}
-              className="pl-5 py-4 w-full flex justify-between text-gray-800 hover:bg-emerald-500 hover:text-gray-100"
-              to="dashboard"
+              className="pl-5 py-4 w-full flex justify-between text-gray-800 hover:text-emerald-500"
+              to="manage-users"
             >
-              <MdAttachMoney size="1.3em" className="mr-3 self-center" />
+              <MdOutlineAddTask size="1.3em" className="mr-3 self-center" />
               <div className="flex w-full">
-                <NavLink
-                  end
-                  style={({ isActive }) => ({
-                    color: isActive ? "white" : "",
-                  })}
-                  className="text-[13px] self-center font-light cursor-pointer"
-                  to="dashboard"
-                >
-                  Pricing
-                </NavLink>
+                <div className="text-[13px] self-center font-light cursor-pointer">
+                  Manage Users
+                </div>
               </div>
             </NavLink>
 
@@ -255,7 +243,7 @@ const AdminDashboard = () => {
                             color: isActive ? "white" : "",
                           })}
                           className="text-[13px] self-center font-light cursor-pointer"
-                          to="dashboard"
+                          to="/"
                         >
                           Dashboard
                         </NavLink>
