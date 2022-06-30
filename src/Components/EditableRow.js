@@ -1,13 +1,19 @@
 import React from "react";
 
-function EditableRow({ editForm, handleEditFormChange, handleCancelClick }) {
+function EditableRow({
+  editForm,
+  handleEditFormChange,
+  handleCancelClick,
+  handlePop,
+}) {
   return (
-    <tr>
-      <td className="px-5 space-x-2 py-5 border-b border-gray-200 bg-white text-xs">
+    <tr className="flex z-50 flex-col bg-white p-5 w-96 rounded-lg shadow-lg">
+      <p>Edit Plan</p>
+      <td className="space-x-2 py-5 border-b border-gray-200 bg-white text-sm">
         <input
           type="text"
           name="name"
-          className="p-1 border"
+          className="p-2 border border-gray-400 rounded-md w-full"
           placeholder="Name..."
           value={editForm.name}
           onChange={handleEditFormChange}
@@ -15,11 +21,11 @@ function EditableRow({ editForm, handleEditFormChange, handleCancelClick }) {
         />
       </td>
 
-      <td className="px-5 space-x-2 py-5 border-b border-gray-200 bg-white text-xs">
+      <td className=" space-x-2 py-5 border-b border-gray-200 bg-white text-sm">
         <input
           type="text"
           name="limit"
-          className="p-1 border"
+          className="p-2 border border-gray-400 rounded-md w-full"
           placeholder="Limit..."
           value={editForm.limit}
           onChange={handleEditFormChange}
@@ -27,11 +33,11 @@ function EditableRow({ editForm, handleEditFormChange, handleCancelClick }) {
         />
       </td>
 
-      <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+      <td className=" py-5 border-b border-gray-200 bg-white text-sm">
         <input
           type="text"
           name="price"
-          className="p-1 border "
+          className="p-2 border border-gray-400 rounded-md w-full"
           placeholder="Price..."
           value={editForm.price}
           onChange={handleEditFormChange}
@@ -39,11 +45,11 @@ function EditableRow({ editForm, handleEditFormChange, handleCancelClick }) {
         />
       </td>
 
-      <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+      <td className=" py-5 border-b border-gray-200 bg-white text-sm">
         <input
           type="text"
           name="time"
-          className="p-1 border "
+          className="p-2 border border-gray-400 rounded-md w-full"
           placeholder="Time..."
           value={editForm.time}
           onChange={handleEditFormChange}
@@ -51,17 +57,21 @@ function EditableRow({ editForm, handleEditFormChange, handleCancelClick }) {
         />
       </td>
 
-      <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+      <td className=" py-5 border-b border-gray-200 bg-white text-sm">
         <button
+          onClick={() => handlePop()}
           type="submit"
-          className="px-3 py-2 mx-2 bg-emerald-500 text-xs text-white"
+          className="px-3 py-2 mx-2 bg-emerald-500 text-sm text-white"
         >
           Save
         </button>
         <button
-          onClick={handleCancelClick}
+          onClick={() => {
+            handleCancelClick();
+            handlePop();
+          }}
           type="button"
-          className="px-3 py-2 mx-2 bg-red-600 text-xs text-white"
+          className="px-3 py-2 mx-2 bg-red-600 text-sm text-white"
         >
           Cancel
         </button>

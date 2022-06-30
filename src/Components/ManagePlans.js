@@ -6,6 +6,8 @@ import ReadOnlyRow from "./ReadOnlyRow";
 import EditableRow from "./EditableRow";
 
 function ManagePlans() {
+  const [Pop, setPop] = useState(false);
+  const [AddPlan, setAddPlan] = useState(false);
   const [EditPlansID, setEditPlansID] = useState(null);
   const [Plans, setPlans] = useState(Data);
   const [addForm, setAddForm] = useState({
@@ -105,13 +107,30 @@ function ManagePlans() {
     setPlans(newPlans);
   };
 
+  const handlePop = () => {
+    setPop(!Pop);
+  };
+
   const [PlanName, setPlanName] = useState("");
   const [PlanLimit, setPlanLimit] = useState("");
   const [PlanPrice, setPlanPrice] = useState("");
   const [PlanTime, setPlanTime] = useState("");
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col w-full">
+      <div className="w-full px-10 flex justify-between">
+        <input
+          className="py-2 px-2 border rounded-md w-2/6"
+          type="search"
+          placeholder="Search Plans"
+        />
+        <button
+          className="py-3 px-10 rounded-md bg-emerald-500 hover:bg-emerald-400 text-white"
+          onClick={() => setAddPlan(!AddPlan)}
+        >
+          Add Plan
+        </button>
+      </div>
       <section className="w-full flex justify-center">
         <div className="container w-full mx-auto px-4 sm:px-8">
           <div className="">
@@ -140,19 +159,30 @@ function ManagePlans() {
                         </th>
                       </tr>
                     </thead>
+
                     <tbody>
                       {/* table row 1  */}
                       {Plans.map((pick) => (
                         <>
-                          {EditPlansID === pick.id ? (
-                            <EditableRow
-                              editForm={editForm}
-                              handleEditFormChange={handleEditFormChange}
-                              handleCancelClick={handleCancelClick}
-                            />
-                          ) : null}
+                          <div
+                            className={
+                              Pop === true
+                                ? "edit-table-modal w-full h-screen absolute left-0 top-0 flex justify-center items-center"
+                                : "hidden"
+                            }
+                          >
+                            {EditPlansID === pick.id ? (
+                              <EditableRow
+                                editForm={editForm}
+                                handlePop={handlePop}
+                                handleEditFormChange={handleEditFormChange}
+                                handleCancelClick={handleCancelClick}
+                              />
+                            ) : null}
+                          </div>
                           <ReadOnlyRow
                             pick={pick}
+                            handlePop={handlePop}
                             handleDeleteClick={handleDeleteClick}
                             handleEditClick={handleEditClick}
                           />
@@ -167,48 +197,64 @@ function ManagePlans() {
         </div>
       </section>
 
-      <section className="pb-10">
-        <h2 className="text-4xl">ADD NEW DATA</h2>
-        <form onSubmit={handleAddFormSubmit}>
-          <input
-            onChange={handleAddFormChange}
-            type="text"
-            name="name"
-            className="p-2 border mx-2"
-            placeholder="Name..."
-            required
-          />
-          <input
-            onChange={handleAddFormChange}
-            type="text"
-            name="limit"
-            className="p-2 border mx-2"
-            placeholder="Limit..."
-            required
-          />
-          <input
-            onChange={handleAddFormChange}
-            type="text"
-            name="price"
-            className="p-2 border mx-2"
-            placeholder="Price..."
-            required
-          />
-          <input
-            onChange={handleAddFormChange}
-            type="text"
-            name="time"
-            className="p-2 border mx-2"
-            placeholder="Time..."
-            required
-          />
-          <button type="submit" className="px-10 py-3 bg-green-500">
-            ADD
-          </button>
-        </form>
+      {/* ADD PLAN SECTION  */}
+      <section
+        className={
+          AddPlan === true
+            ? "absolute top-0 left-0 w-full h-screen flex justify-center items-center edit-table-modal"
+            : "hidden"
+        }
+      >
+        <div className="w-2/3 bg-white p-5">
+          <h2 className="text-4xl">ADD NEW DATA</h2>
+          <form
+            className="flex flex-col space-y-5"
+            onSubmit={handleAddFormSubmit}
+          >
+            <input
+              onChange={handleAddFormChange}
+              type="text"
+              name="name"
+              className="p-2 mt-3 border border-gray-400 mx-2 rounded-md"
+              placeholder="Name..."
+              required
+            />
+            <input
+              onChange={handleAddFormChange}
+              type="text"
+              name="limit"
+              className="p-2 border border-gray-400 mx-2 rounded-md"
+              placeholder="Limit..."
+              required
+            />
+            <input
+              onChange={handleAddFormChange}
+              type="text"
+              name="price"
+              className="p-2 border mx-2"
+              placeholder="Price..."
+              required
+            />
+            <input
+              onChange={handleAddFormChange}
+              type="text"
+              name="time"
+              className="p-2 border border-gray-400 mx-2 rounded-md"
+              placeholder="Time..."
+              required
+            />
+            <button
+              onClick={() => setAddPlan(!AddPlan)}
+              type="submit"
+              className="px-10 py-3 bg-green-500"
+            >
+              ADD
+            </button>
+          </form>
+        </div>
       </section>
 
-      <section className="w-full flex justify-center items-center md:px-10">
+      <section className="w-full md:hidden flex justify-center items-center md:px-10">
         <div className="w-full md:w-5/6 flex flex-col sm:flex-row bg-white shadow-lg rounded-lg">
           <div className="w-full sm:w-60 p-5 text-center sm:text-left bg-gray-100 rounded-l-lg">
             <h2 className="text-lg">Plan Details</h2>
