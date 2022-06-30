@@ -1,6 +1,6 @@
 export const Data = [
   {
-    number: "1.",
+    id: 1,
     name: "Free",
     limit: "monthly",
     price: "$0.00",
@@ -8,7 +8,7 @@ export const Data = [
   },
 
   {
-    number: "2.",
+    id: 2,
     name: "Free",
     limit: "monthly",
     price: "$0.00",
@@ -16,7 +16,7 @@ export const Data = [
   },
 
   {
-    number: "3.",
+    id: 3,
     name: "Free",
     limit: "monthly",
     price: "$0.00",
@@ -24,7 +24,7 @@ export const Data = [
   },
 
   {
-    number: "4.",
+    id: 4,
     name: "Free",
     limit: "monthly",
     price: "$0.00",
@@ -32,7 +32,7 @@ export const Data = [
   },
 
   {
-    number: "4.",
+    id: 5,
     name: "Free",
     limit: "monthly",
     price: "$0.00",
