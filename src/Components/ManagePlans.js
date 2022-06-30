@@ -117,10 +117,10 @@ function ManagePlans() {
   const [PlanTime, setPlanTime] = useState("");
 
   return (
-    <div className="flex flex-col w-full">
+    <div className="flex flex-col w-full -mt-5">
       <div className="w-full px-10 flex justify-between">
         <input
-          className="py-2 px-2 border rounded-md w-2/6"
+          className="py-2 -ml-2 px-2 border border-gray-400 rounded-md w-2/6"
           type="search"
           placeholder="Search Plans"
         />
