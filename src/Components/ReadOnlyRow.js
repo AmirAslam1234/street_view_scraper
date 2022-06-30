@@ -1,6 +1,6 @@
 import React from "react";
 
-function ReadOnlyRow({ pick, handleEditClick }) {
+function ReadOnlyRow({ pick, handleEditClick, handleDeleteClick }) {
   return (
     <tr>
       <td className="px-5 space-x-2 py-5 border-b border-gray-200 bg-white text-xs">
@@ -26,7 +26,11 @@ function ReadOnlyRow({ pick, handleEditClick }) {
         >
           Edit
         </button>
-        <button className="px-3 py-2 mx-2 bg-red-600 text-xs text-white">
+        <button
+          onClick={() => handleDeleteClick(pick.id)}
+          type="button"
+          className="px-3 py-2 mx-2 bg-red-600 text-xs text-white"
+        >
           Delete
         </button>
       </td>

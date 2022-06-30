@@ -98,6 +98,13 @@ function ManagePlans() {
     setEditPlansID(null);
   };
 
+  const handleDeleteClick = (planID) => {
+    const newPlans = [...Plans];
+    const index = Plans.findIndex((pick) => pick.id === planID);
+    newPlans.splice(index, 1);
+    setPlans(newPlans);
+  };
+
   const [PlanName, setPlanName] = useState("");
   const [PlanLimit, setPlanLimit] = useState("");
   const [PlanPrice, setPlanPrice] = useState("");
@@ -143,12 +150,12 @@ function ManagePlans() {
                               handleEditFormChange={handleEditFormChange}
                               handleCancelClick={handleCancelClick}
                             />
-                          ) : (
-                            <ReadOnlyRow
-                              pick={pick}
-                              handleEditClick={handleEditClick}
-                            />
-                          )}
+                          ) : null}
+                          <ReadOnlyRow
+                            pick={pick}
+                            handleDeleteClick={handleDeleteClick}
+                            handleEditClick={handleEditClick}
+                          />
                         </>
                       ))}
                     </tbody>
