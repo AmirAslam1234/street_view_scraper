@@ -15,6 +15,13 @@ function ManagePlans() {
     time: "",
   });
 
+  const [editForm, setEditForm] = useState({
+    name: "",
+    limit: "",
+    price: "",
+    time: "",
+  });
+
   const handleAddFormChange = (e) => {
     e.preventDefault();
 
@@ -26,6 +33,18 @@ function ManagePlans() {
     setAddForm(newFormData);
 
     console.log(addForm);
+  };
+
+  const handleEditFormChange = (e) => {
+    e.preventDefault();
+
+    const fieldName = e.target.getAttribute("name");
+    const fieldValue = e.target.value;
+
+    const newFormData = { ...editForm };
+    newFormData[fieldName] = fieldValue;
+
+    setEditForm(newFormData);
   };
 
   const handleAddFormSubmit = (e) => {
@@ -43,9 +62,40 @@ function ManagePlans() {
     setPlans(newPlans);
   };
 
+  const handleEditFormSubmit = (e) => {
+    e.preventDefault();
+
+    const editedPlan = {
+      id: editForm.id,
+      name: editForm.name,
+      limit: editForm.limit,
+      price: editForm.price,
+      time: editForm.time,
+    };
+
+    const newPlans = [...Plans];
+    const index = Plans.findIndex((pick) => pick.id === EditPlansID);
+    newPlans[index] = editedPlan;
+    setPlans(newPlans);
+    setEditPlansID(null);
+  };
+
   const handleEditClick = (e, pick) => {
     e.preventDefault();
     setEditPlansID(pick.id);
+
+    const formValues = {
+      name: pick.name,
+      limit: pick.limit,
+      price: pick.price,
+      time: pick.time,
+    };
+
+    setEditForm(formValues);
+  };
+
+  const handleCancelClick = () => {
+    setEditPlansID(null);
   };
 
   const [PlanName, setPlanName] = useState("");
@@ -60,7 +110,7 @@ function ManagePlans() {
           <div className="">
             <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
               <div className="inline-block min-w-full shadow-md rounded-lg overflow-hidden">
-                <form>
+                <form onSubmit={handleEditFormSubmit}>
                   <table className="min-w-full leading-normal">
                     <thead>
                       <tr className="bg-gray-100 text-gray-800 py-4">
@@ -88,7 +138,11 @@ function ManagePlans() {
                       {Plans.map((pick) => (
                         <>
                           {EditPlansID === pick.id ? (
-                            <EditableRow />
+                            <EditableRow
+                              editForm={editForm}
+                              handleEditFormChange={handleEditFormChange}
+                              handleCancelClick={handleCancelClick}
+                            />
                           ) : (
                             <ReadOnlyRow
                               pick={pick}
