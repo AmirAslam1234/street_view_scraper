@@ -126,7 +126,7 @@ function ManageUsers() {
         <input
           className="py-2 md:-ml-2 px-2 border border-gray-400 rounded-md w-full md:w-2/6"
           type="search"
-          placeholder="Search Plans"
+          placeholder="Search Users"
         />
         <button
           className="py-3 px-10 mt-5 md:mt-0 w-full md:w-fit rounded-md bg-emerald-500 hover:bg-emerald-400 text-white"
