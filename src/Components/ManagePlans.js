@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../App.css";
 import { Data } from "./PlansData";
 import { nanoid } from "nanoid";
@@ -122,14 +122,14 @@ function ManagePlans() {
 
   return (
     <div className="flex flex-col w-full -mt-5">
-      <div className="w-full px-10 flex justify-between">
+      <div className="w-full md:px-10 flex flex-col items-center md:flex-row md:justify-between">
         <input
-          className="py-2 -ml-2 px-2 border border-gray-400 rounded-md w-2/6"
+          className="py-2 md:-ml-2 px-2 border border-gray-400 rounded-md w-full md:w-2/6"
           type="search"
           placeholder="Search Plans"
         />
         <button
-          className="py-3 px-10 rounded-md bg-emerald-500 hover:bg-emerald-400 text-white"
+          className="py-3 px-10 mt-5 md:mt-0 w-full md:w-fit rounded-md bg-emerald-500 hover:bg-emerald-400 text-white"
           onClick={() => setAddPlan(!AddPlan)}
         >
           Add Plan
@@ -148,24 +148,22 @@ function ManagePlans() {
                           NAME
                         </th>
 
-                        <th className="px-5 py-3 border-b-2 border-gray-200  text-left text-xs font-semibold  uppercase tracking-wider">
+                        <th className="pl-7 py-3 border-b-2 border-gray-200  text-left text-xs font-semibold  uppercase tracking-wider">
                           LIMIT
                         </th>
 
-                        <th className="px-5 py-3 border-b-2 border-gray-200  text-left text-xs font-semibold  uppercase tracking-wider">
+                        <th className="pl-6 py-3 border-b-2 border-gray-200  text-left text-xs font-semibold  uppercase tracking-wider">
                           PRICE
                         </th>
-                        <th className="px-5 py-3 border-b-2 border-gray-200  text-left text-xs font-semibold  uppercase tracking-wider">
+                        <th className="px-10 sm:pl-9 py-3 border-b-2 border-gray-200  text-left text-xs font-semibold uppercase tracking-wider">
                           TIME
                         </th>
-                        <th className="px-2 py-3 border-b-2 border-gray-200  text-left text-xs font-semibold  uppercase tracking-wider">
+                        <th className="px-7 sm:px-6 md:pl-6 py-3 border-b-2 border-gray-200  text-left text-xs font-semibold  uppercase tracking-wider">
                           ACTIONS
                         </th>
                       </tr>
                     </thead>
-
                     <tbody>
-                      {/* table row 1  */}
                       {Plans.map((pick) => (
                         <>
                           <div

@@ -3,12 +3,8 @@ import "../App.css";
 import { useNavigate, Outlet, NavLink } from "react-router-dom";
 import { FiMenu } from "react-icons/fi";
 import { AiOutlineQuestion, AiOutlineCloseCircle } from "react-icons/ai";
-import { FaUser } from "react-icons/fa";
-import {
-  MdDashboardCustomize,
-  MdAttachMoney,
-  MdOutlineAddTask,
-} from "react-icons/md";
+import { FaUser, FaUserFriends } from "react-icons/fa";
+import { MdDashboardCustomize, MdOutlineAddTask } from "react-icons/md";
 import logo from "../Assets/Images/logo_dark.png";
 
 const AdminDashboard = () => {
@@ -130,7 +126,7 @@ const AdminDashboard = () => {
               className="pl-5 py-4 w-full flex justify-between text-gray-800 hover:text-emerald-500"
               to="manage-users"
             >
-              <MdOutlineAddTask size="1.3em" className="mr-3 self-center" />
+              <FaUserFriends size="1.3em" className="mr-3 self-center" />
               <div className="flex w-full">
                 <div className="text-[13px] self-center font-light cursor-pointer">
                   Manage Users

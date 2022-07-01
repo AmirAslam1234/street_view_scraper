@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import ReactPaginate from "react-paginate";
 import { Data } from "./PlansData";
 
-function ReadOnlyRow({
+function ReadOnlyRowUsers({
   pick,
   handleEditClick,
   handleDeleteClick,
@@ -17,15 +17,15 @@ function ReadOnlyRow({
         </td>
 
         <td className="px-5 space-x-2 py-5 border-b border-gray-200 bg-white text-xs">
-          <p className="text-gray-900 whitespace-no-wrap">{pick.limit}</p>
+          <p className="text-gray-900 whitespace-no-wrap">{pick.email}</p>
         </td>
 
         <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-          <p className="text-gray-600 whitespace-no-wrap">{pick.price}</p>
+          <p className="text-gray-600 whitespace-no-wrap">{pick.contact}</p>
         </td>
 
         <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-          <p className="text-gray-600 whitespace-no-wrap">{pick.time}</p>
+          <p className="text-gray-600 whitespace-no-wrap">{pick.address}</p>
         </td>
         <td className=" py-5 border-b border-gray-200 bg-white text-sm">
           <button
@@ -51,4 +51,4 @@ function ReadOnlyRow({
   );
 }
 
-export default ReadOnlyRow;
+export default ReadOnlyRowUsers;
