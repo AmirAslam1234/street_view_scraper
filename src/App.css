@@ -21,6 +21,12 @@
     background-color: rgba(0, 0, 0, 0.25);
 }
 
+.edit-table-modal2 {
+    background-color: rgba(0, 0, 0, 0.06);
+}
+
+
+
 
 
 input[type=number]::-webkit-inner-spin-button,

@@ -4,8 +4,12 @@ import { Data } from "./PlansData";
 import { nanoid } from "nanoid";
 import ReadOnlyRow from "./ReadOnlyRow";
 import EditableRow from "./EditableRow";
+import { AiOutlineCloseCircle } from "react-icons/ai";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function ManagePlans() {
+  const [Active, setActive] = useState(false);
   const [Pop, setPop] = useState(false);
   const [AddPlan, setAddPlan] = useState(false);
   const [EditPlansID, setEditPlansID] = useState(null);
@@ -26,13 +30,16 @@ function ManagePlans() {
 
   const handleAddFormChange = (e) => {
     e.preventDefault();
-
     const fieldName = e.target.getAttribute("name");
     const fieldValue = e.target.value;
     const newFormData = { ...addForm };
     newFormData[fieldName] = fieldValue;
 
     setAddForm(newFormData);
+
+    if (fieldValue !== "") {
+      setActive(true);
+    }
 
     console.log(addForm);
   };
@@ -111,10 +118,7 @@ function ManagePlans() {
     setPop(!Pop);
   };
 
-  const [PlanName, setPlanName] = useState("");
-  const [PlanLimit, setPlanLimit] = useState("");
-  const [PlanPrice, setPlanPrice] = useState("");
-  const [PlanTime, setPlanTime] = useState("");
+  const notify = () => toast("Plan Added Successfully");
 
   return (
     <div className="flex flex-col w-full -mt-5">
@@ -167,7 +171,7 @@ function ManagePlans() {
                           <div
                             className={
                               Pop === true
-                                ? "edit-table-modal w-full h-screen absolute left-0 top-0 flex justify-center items-center"
+                                ? "edit-table-modal2 w-full h-full absolute left-0 top-0 flex justify-center items-center"
                                 : "hidden"
                             }
                           >
@@ -201,61 +205,16 @@ function ManagePlans() {
       <section
         className={
           AddPlan === true
-            ? "absolute top-0 left-0 w-full h-screen flex justify-center items-center edit-table-modal"
+            ? "fixed top-0 left-0 w-full h-screen flex justify-center items-center edit-table-modal"
             : "hidden"
         }
       >
-        <div className="w-2/3 bg-white p-5">
-          <h2 className="text-4xl">ADD NEW DATA</h2>
-          <form
-            className="flex flex-col space-y-5"
-            onSubmit={handleAddFormSubmit}
-          >
-            <input
-              onChange={handleAddFormChange}
-              type="text"
-              name="name"
-              className="p-2 mt-3 border border-gray-400 mx-2 rounded-md"
-              placeholder="Name..."
-              required
-            />
-            <input
-              onChange={handleAddFormChange}
-              type="text"
-              name="limit"
-              className="p-2 border border-gray-400 mx-2 rounded-md"
-              placeholder="Limit..."
-              required
-            />
-            <input
-              onChange={handleAddFormChange}
-              type="text"
-              name="price"
-              className="p-2 border mx-2"
-              placeholder="Price..."
-              required
-            />
-            <input
-              onChange={handleAddFormChange}
-              type="text"
-              name="time"
-              className="p-2 border border-gray-400 mx-2 rounded-md"
-              placeholder="Time..."
-              required
-            />
-            <button
-              onClick={() => setAddPlan(!AddPlan)}
-              type="submit"
-              className="px-10 py-3 bg-green-500"
-            >
-              ADD
-            </button>
-          </form>
-        </div>
-      </section>
+        <div className="w-full mx-5 relative md:w-3/5 flex flex-col sm:flex-row bg-white shadow-lg rounded-lg">
+          <AiOutlineCloseCircle
+            onClick={() => setAddPlan(!AddPlan)}
+            className="absolute top-3 right-5 cursor-pointer text-2xl hover:text-gray-400"
+          />
 
-      <section className="w-full md:hidden flex justify-center items-center md:px-10">
-        <div className="w-full md:w-5/6 flex flex-col sm:flex-row bg-white shadow-lg rounded-lg">
           <div className="w-full sm:w-60 p-5 text-center sm:text-left bg-gray-100 rounded-l-lg">
             <h2 className="text-lg">Plan Details</h2>
             <p className="py-2 text-xs text-gray-400">
@@ -263,62 +222,73 @@ function ManagePlans() {
               Reiciendis, cum.
             </p>
           </div>
-          <div className="w-5/6 p-5">
-            <form action="plans">
+          <div className="w-full md:w-5/6 p-5">
+            <form className="flex flex-col p-5" onSubmit={handleAddFormSubmit}>
               <label htmlFor="plan-name ">
                 Plan Name
                 <input
+                  onChange={handleAddFormChange}
                   type="text"
-                  name="plan-name"
-                  value={PlanName}
-                  onChange={(e) => setPlanName(e.target.value)}
+                  name="name"
                   className="p-2 mt-1 mb-5 w-full text-sm border rounded-md"
                   placeholder="Plan Name"
+                  required
                 />
               </label>
 
               <label htmlFor="plan-limit ">
                 Plan Limit
                 <input
+                  onChange={handleAddFormChange}
                   type="text"
-                  name="plan-limit"
-                  value={PlanLimit}
-                  onChange={(e) => setPlanLimit(e.target.value)}
+                  name="limit"
                   className="p-2 mt-1 mb-5 w-full text-sm border rounded-md"
                   placeholder="Weekly, Monthly, 6 months, yearly ?"
+                  required
                 />
               </label>
 
-              <label htmlFor="plan-price">
-                <span className="flex">Plan Price</span>
+              <label htmlFor="plan-limit ">
+                Plan Price
                 <input
+                  onChange={handleAddFormChange}
                   type="number"
-                  name="plan-price"
-                  value={PlanPrice}
-                  onChange={(e) => setPlanPrice(e.target.value)}
-                  className="p-2 mt-1 mb-5 w-full text-sm appearance-none border rounded-md"
+                  name="price"
+                  className="p-2 mt-1 mb-5 w-full text-sm border rounded-md"
                   placeholder="Plan Price"
                   required
                 />
               </label>
 
-              <label htmlFor="plan-time">
+              <label htmlFor="plan-limit ">
                 Plan Time
                 <input
+                  onChange={handleAddFormChange}
                   type="date"
-                  name="plan-time"
-                  value={PlanTime}
-                  onChange={(e) => setPlanTime(e.target.value)}
-                  className="p-2 mt-1 w-full text-sm border rounded-md"
+                  name="time"
+                  className="p-2 mt-1 mb-5 w-full text-sm border rounded-md"
+                  required
                 />
               </label>
-            </form>
 
-            <div className="w-full flex justify-end">
-              <button className="py-3 px-6 text-sm bg-black text-white mt-5">
-                Save
-              </button>
-            </div>
+              <div className="w-full flex justify-end">
+                {Active === true ? (
+                  <button
+                    onClick={() => notify()}
+                    type="submit"
+                    className="py-3 px-6 text-sm bg-black text-white mt-5"
+                  >
+                    ADD
+                  </button>
+                ) : (
+                  <button className="py-3 px-6 text-sm bg-gray-600 text-gray-400 mt-5 cursor-not-allowed">
+                    ADD
+                  </button>
+                )}
+
+                <ToastContainer />
+              </div>
+            </form>
           </div>
         </div>
       </section>

@@ -7,9 +7,9 @@ function EditableRow({
   handlePop,
 }) {
   return (
-    <tr className="flex z-50 flex-col bg-white p-5 w-96 rounded-lg shadow-lg">
+    <tr className="flex z-50 mx-5 flex-col bg-white p-5 w-[450px] rounded-lg shadow-lg">
       <p>Edit Plan</p>
-      <td className="space-x-2 py-5 border-b border-gray-200 bg-white text-sm">
+      <td className="space-x-2 py-3 bg-white text-sm">
         <input
           type="text"
           name="name"
@@ -21,7 +21,7 @@ function EditableRow({
         />
       </td>
 
-      <td className=" space-x-2 py-5 border-b border-gray-200 bg-white text-sm">
+      <td className=" space-x-2 py-3 bg-white text-sm">
         <input
           type="text"
           name="limit"
@@ -33,7 +33,7 @@ function EditableRow({
         />
       </td>
 
-      <td className=" py-5 border-b border-gray-200 bg-white text-sm">
+      <td className=" py-3 bg-white text-sm">
         <input
           type="text"
           name="price"
@@ -45,7 +45,7 @@ function EditableRow({
         />
       </td>
 
-      <td className=" py-5 border-b border-gray-200 bg-white text-sm">
+      <td className=" py-3 bg-white text-sm">
         <input
           type="text"
           name="time"
@@ -57,11 +57,11 @@ function EditableRow({
         />
       </td>
 
-      <td className=" py-5 border-b border-gray-200 bg-white text-sm">
+      <td className=" py-3 border-b border-gray-200 bg-white text-sm">
         <button
           onClick={() => handlePop()}
           type="submit"
-          className="px-3 py-2 mx-2 bg-emerald-500 text-sm text-white"
+          className="px-3 py-2 mx-2 bg-emerald-500 hover:bg-emerald-400 rounded-md text-sm text-white"
         >
           Save
         </button>
@@ -71,7 +71,7 @@ function EditableRow({
             handlePop();
           }}
           type="button"
-          className="px-3 py-2 mx-2 bg-red-600 text-sm text-white"
+          className="px-3 py-2 mx-2 bg-red-600 hover:bg-red-400 rounded-md text-sm text-white"
         >
           Cancel
         </button>

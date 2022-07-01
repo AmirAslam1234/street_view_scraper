@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { AiFillDelete, AiFillEdit } from "react-icons/ai";
 
 function ReadOnlyRow({ pick, handleEditClick, handleDeleteClick, handlePop }) {
   return (
@@ -26,16 +27,16 @@ function ReadOnlyRow({ pick, handleEditClick, handleDeleteClick, handlePop }) {
               handlePop();
             }}
             type="button"
-            className="px-3 py-2 mx-2 bg-emerald-500 text-xs text-white"
+            className="px-2 py-2 mx-2 rounded-full border border-white hover:border-emerald-400 text-emerald-500  hover:text-emerald-400 text-lg"
           >
-            Edit
+            <AiFillEdit />
           </button>
           <button
             onClick={() => handleDeleteClick(pick.id)}
             type="button"
-            className="px-3 py-2 mx-2 bg-red-600 text-xs text-white"
+            className=" px-2 py-2 mx-2 rounded-full border border-white hover:border-red-400 text-red-600 hover:text-red-400 text-lg"
           >
-            Delete
+            <AiFillDelete className="self-center" />
           </button>
         </td>
       </tr>
