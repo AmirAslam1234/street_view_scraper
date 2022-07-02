@@ -2,9 +2,13 @@ import React, { useState } from "react";
 import "../App.css";
 import { useNavigate, Outlet, NavLink } from "react-router-dom";
 import { FiMenu } from "react-icons/fi";
-import { AiOutlineQuestion, AiOutlineCloseCircle } from "react-icons/ai";
+import { AiOutlineCloseCircle } from "react-icons/ai";
 import { FaUser, FaUserFriends } from "react-icons/fa";
-import { MdDashboardCustomize, MdOutlineAddTask } from "react-icons/md";
+import {
+  MdDashboardCustomize,
+  MdOutlineAddTask,
+  MdOutlineRateReview,
+} from "react-icons/md";
 import logo from "../Assets/Images/logo_dark.png";
 
 const AdminDashboard = () => {
@@ -139,27 +143,21 @@ const AdminDashboard = () => {
               end
               style={({ isActive }) => ({
                 color: isActive ? "white" : "",
+                backgroundColor: isActive ? "#10B981" : "",
               })}
               onClick={() => {
                 setActive(3);
                 setActive2(0);
                 toggle2();
               }}
-              className="pl-5 py-4 w-full flex justify-between text-gray-800 hover:bg-emerald-500 hover:text-gray-100"
-              to="dashboard"
+              className="pl-5 py-4 w-full flex justify-between text-gray-800 hover:text-emerald-500"
+              to="manage-Reviews"
             >
-              <AiOutlineQuestion size="1.3em" className="mr-3 self-center" />
+              <MdOutlineRateReview size="1.3em" className="mr-3 self-center" />
               <div className="flex w-full">
-                <NavLink
-                  end
-                  style={({ isActive }) => ({
-                    color: isActive ? "white" : "",
-                  })}
-                  className="text-[13px] self-center font-light cursor-pointer"
-                  to="dashboard"
-                >
-                  FAQs
-                </NavLink>
+                <div className="text-[13px] self-center font-light cursor-pointer">
+                  Manage Reviews
+                </div>
               </div>
             </NavLink>
           </div>

@@ -1,31 +1,29 @@
 import React, { useEffect, useState } from "react";
 import "../App.css";
-import { Data2 } from "./PlansData";
+import { Data3 } from "./PlansData";
 import { nanoid } from "nanoid";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import EditableRowUsers from "./EditableRowUsers";
-import ReadOnlyRowUsers from "./ReadOnlyRowUsers";
+import EditableRowReviews from "./EditableRowRevies";
+import ReadOnlyRowReviews from "./ReadOnlyRowsReviews";
 
-function ManageUsers() {
+function ManageReviews() {
   const [Active, setActive] = useState(false);
   const [Pop, setPop] = useState(false);
   const [AddPlan, setAddPlan] = useState(false);
   const [EditPlansID, setEditPlansID] = useState(null);
-  const [Plans, setPlans] = useState(Data2);
+  const [Plans, setPlans] = useState(Data3);
   const [addForm, setAddForm] = useState({
     name: "",
-    email: "",
-    contact: "",
-    address: "",
+    review: "",
+    date: "",
   });
 
   const [editForm, setEditForm] = useState({
     name: "",
-    email: "",
-    contact: "",
-    address: "",
+    review: "",
+    date: "",
   });
 
   const handleAddFormChange = (e) => {
@@ -62,9 +60,8 @@ function ManageUsers() {
     const newPlan = {
       id: nanoid(),
       name: addForm.name,
-      email: addForm.email,
-      contact: addForm.contact,
-      address: addForm.address,
+      review: addForm.review,
+      date: addForm.date,
     };
 
     const newPlans = [...Plans, newPlan];
@@ -77,9 +74,8 @@ function ManageUsers() {
     const editedPlan = {
       id: editForm.id,
       name: editForm.name,
-      email: editForm.email,
-      contact: editForm.contact,
-      address: editForm.address,
+      review: editForm.review,
+      date: editForm.date,
     };
 
     const newPlans = [...Plans];
@@ -95,9 +91,8 @@ function ManageUsers() {
 
     const formValues = {
       name: pick.name,
-      email: pick.email,
-      contact: pick.contact,
-      address: pick.address,
+      review: pick.review,
+      date: pick.date,
     };
 
     setEditForm(formValues);
@@ -126,14 +121,8 @@ function ManageUsers() {
         <input
           className="py-2 md:-ml-2 px-2 border border-gray-400 rounded-md w-full md:w-2/6"
           type="search"
-          placeholder="Search Users"
+          placeholder="Search Reviews"
         />
-        <button
-          className="py-3 px-10 mt-5 md:mt-0 w-full md:w-fit rounded-md bg-emerald-500 hover:bg-emerald-400 text-white"
-          onClick={() => setAddPlan(!AddPlan)}
-        >
-          Add User
-        </button>
       </div>
       <section className="w-full flex justify-center">
         <div className="container w-full mx-auto px-4 sm:px-8">
@@ -148,15 +137,15 @@ function ManageUsers() {
                           NAME
                         </th>
 
-                        <th className="pl-10 py-3 border-b-2 border-gray-200  text-left text-xs font-semibold  uppercase tracking-wider">
-                          EMAIL
+                        <th className="pl-[64px] py-3 border-b-2 border-gray-200  text-left text-xs font-semibold  uppercase tracking-wider">
+                          REVIEW
                         </th>
 
-                        <th className="pl-6 py-3 border-b-2 border-gray-200  text-left text-xs font-semibold  uppercase tracking-wider">
-                          CONTACT
+                        <th className="pl-10 py-3 border-b-2 border-gray-200  text-left text-xs font-semibold  uppercase tracking-wider">
+                          DATE
                         </th>
-                        <th className="px-10 sm:pl-14 py-3 border-b-2 border-gray-200  text-left text-xs font-semibold uppercase tracking-wider">
-                          ADDRESS
+                        <th className="px-10 sm:pl-7 py-3 border-b-2 border-gray-200  text-left text-xs font-semibold uppercase tracking-wider">
+                          RATING
                         </th>
                         <th className="px-7 sm:px-6 md:pl-6 py-3 border-b-2 border-gray-200  text-left text-xs font-semibold  uppercase tracking-wider">
                           ACTIONS
@@ -174,7 +163,7 @@ function ManageUsers() {
                             }
                           >
                             {EditPlansID === pick.id ? (
-                              <EditableRowUsers
+                              <EditableRowReviews
                                 editForm={editForm}
                                 handlePop={handlePop}
                                 handleEditFormChange={handleEditFormChange}
@@ -182,7 +171,7 @@ function ManageUsers() {
                               />
                             ) : null}
                           </div>
-                          <ReadOnlyRowUsers
+                          <ReadOnlyRowReviews
                             pick={pick}
                             handlePop={handlePop}
                             handleDeleteClick={handleDeleteClick}
@@ -295,4 +284,4 @@ function ManageUsers() {
   );
 }
 
-export default ManageUsers;
+export default ManageReviews;

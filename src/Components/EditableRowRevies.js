@@ -1,6 +1,6 @@
 import React from "react";
 
-function EditableRowUsers({
+function EditableRowReviews({
   editForm,
   handleEditFormChange,
   handleCancelClick,
@@ -8,7 +8,7 @@ function EditableRowUsers({
 }) {
   return (
     <tr className="flex z-50 mx-5 flex-col bg-white p-5 w-[450px] rounded-lg shadow-lg">
-      <p>Edit User</p>
+      <p>Edit Review</p>
       <td className="space-x-2 py-3 bg-white text-sm">
         <input
           type="text"
@@ -23,11 +23,11 @@ function EditableRowUsers({
 
       <td className=" space-x-2 py-3 bg-white text-sm">
         <input
-          type="email"
-          name="email"
+          type="text"
+          name="review"
           className="p-2 border border-gray-400 rounded-md w-full"
-          placeholder="User's Email"
-          value={editForm.email}
+          placeholder="User's Review"
+          value={editForm.review}
           onChange={handleEditFormChange}
           required
         />
@@ -35,23 +35,10 @@ function EditableRowUsers({
 
       <td className=" py-3 bg-white text-sm">
         <input
-          type="text"
-          name="contact"
+          type="date"
+          name="date"
           className="p-2 border border-gray-400 rounded-md w-full"
-          placeholder="User's Contact Number"
-          value={editForm.contact}
-          onChange={handleEditFormChange}
-          required
-        />
-      </td>
-
-      <td className=" py-3 bg-white text-sm">
-        <input
-          type="text"
-          name="address"
-          className="p-2 border border-gray-400 rounded-md w-full"
-          placeholder="User's Address"
-          value={editForm.address}
+          value={editForm.date}
           onChange={handleEditFormChange}
           required
         />
@@ -80,4 +67,4 @@ function EditableRowUsers({
   );
 }
 
-export default EditableRowUsers;
+export default EditableRowReviews;

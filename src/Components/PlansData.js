@@ -52,3 +52,40 @@ export const Data2 = [
     address: "Block A, Washington",
   },
 ];
+
+export const Data3 = [
+  {
+    id: 1,
+    name: "Ali",
+    review: "Keep up the good Work",
+    date: "25-06-2022",
+  },
+
+  {
+    id: 2,
+    name: "Wali",
+    review: "Keep up the good Work",
+    date: "25-06-2022",
+  },
+
+  {
+    id: 3,
+    name: "Noor",
+    review: "Keep up the good Work",
+    date: "25-06-2022",
+  },
+
+  {
+    id: 4,
+    name: "Shehzad",
+    review: "Keep up the good Work",
+    date: "25-06-2022",
+  },
+
+  {
+    id: 5,
+    name: "Abdullah",
+    review: "Keep up the good Work",
+    date: "25-06-2022",
+  },
+];
