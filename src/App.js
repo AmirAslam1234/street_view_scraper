@@ -19,6 +19,7 @@ import ManageReviews from "./Components/ManageReviews";
 import Messages from "./Components/Messages";
 import UserDashboard from "./Pages/UserDashboard";
 import MainDashboardUser from "./Components/UserDashboardComponents/MainDashboardUser";
+import UserLogin from "./Pages/UserLogin";
 
 function App() {
   const location = useLocation;
@@ -50,6 +51,7 @@ function App() {
           </Route>
 
           <Route path="/admin-login" element={<Login />} />
+          <Route path="/user-login" element={<UserLogin />} />
           <Route path="/signup" element={<SignUp />} />
         </Routes>
       </Router>

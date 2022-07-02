@@ -384,7 +384,7 @@ const UserDashboard = () => {
                       Edit Profile
                     </a>
                     <a
-                      onClick={() => navigate("/admin-login")}
+                      onClick={() => navigate("/user-login")}
                       className="cursor-pointer hover:underline hover:text-emerald-500"
                     >
                       Log Out

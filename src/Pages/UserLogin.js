@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import logo from "../Assets/Images/logo_dark.png";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 
-function Login() {
+function UserLogin() {
   const [ForgotPass, setForgotPass] = useState(false);
   let navigate = useNavigate();
   return (
@@ -35,6 +35,15 @@ function Login() {
         <form class="w-5/6 sm:w-1/2 mx-auto text-center">
           <div class="mt-10">
             <h2 class="text-3xl font-bold text-black-800">Welcome back</h2>
+            <p class="mt-3 text-gray-800">
+              New to Street View Spectator?{" "}
+              <a
+                onClick={() => navigate("/signup")}
+                class="text-red-600 cursor-pointer"
+              >
+                Sign up
+              </a>
+            </p>
           </div>
           <div class="mt-12">
             <div class="my-6">
@@ -65,7 +74,7 @@ function Login() {
             </div>
             <div class="my-6">
               <button
-                onClick={() => navigate("/admin-dashboard/main-dashboard")}
+                onClick={() => navigate("/user-dashboard/main-dashboard-user")}
                 class="inline-block rounded-sm bg-black font-medium border border-solid cursor-pointer text-center text-base py-3 px-6 text-white w-full"
                 type="submit"
               >
@@ -114,4 +123,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default UserLogin;
