@@ -155,7 +155,7 @@ function ManageUsers() {
                         <th className="pl-6 py-3 border-b-2 border-gray-200  text-left text-xs font-semibold  uppercase tracking-wider">
                           CONTACT
                         </th>
-                        <th className="px-10 sm:pl-14 py-3 border-b-2 border-gray-200  text-left text-xs font-semibold uppercase tracking-wider">
+                        <th className="px-5 py-3 border-b-2 border-gray-200  text-left text-xs font-semibold uppercase tracking-wider">
                           ADDRESS
                         </th>
                         <th className="px-7 sm:px-6 md:pl-6 py-3 border-b-2 border-gray-200  text-left text-xs font-semibold  uppercase tracking-wider">

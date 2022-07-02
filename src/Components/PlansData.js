@@ -89,3 +89,26 @@ export const Data3 = [
     date: "25-06-2022",
   },
 ];
+
+export const Data4 = [
+  {
+    id: 1,
+    name: "Ali",
+    message: "I would like to know more about your services",
+    date: "25-06-2022",
+  },
+
+  {
+    id: 2,
+    name: "Wali",
+    message: "I would like to know more about your services",
+    date: "25-06-2022",
+  },
+
+  {
+    id: 3,
+    name: "Noor",
+    message: "I would like to know more about your services",
+    date: "25-06-2022",
+  },
+];

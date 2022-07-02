@@ -1,28 +1,28 @@
 import React, { useEffect, useState } from "react";
 import "../App.css";
-import { Data3 } from "./PlansData";
+import { Data4 } from "./PlansData";
 import { nanoid } from "nanoid";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import EditableRowReviews from "./EditableRowRevies";
-import ReadOnlyRowReviews from "./ReadOnlyRowsReviews";
+import EditableRowMessages from "./EditableRowMessages";
+import ReadOnlyRowMessages from "./ReadOnlyRowMessages";
 
-function ManageReviews() {
+function Messages() {
   const [Active, setActive] = useState(false);
   const [Pop, setPop] = useState(false);
   const [AddPlan, setAddPlan] = useState(false);
   const [EditPlansID, setEditPlansID] = useState(null);
-  const [Plans, setPlans] = useState(Data3);
+  const [Plans, setPlans] = useState(Data4);
   const [addForm, setAddForm] = useState({
     name: "",
-    review: "",
+    message: "",
     date: "",
   });
 
   const [editForm, setEditForm] = useState({
     name: "",
-    review: "",
+    message: "",
     date: "",
   });
 
@@ -60,7 +60,7 @@ function ManageReviews() {
     const newPlan = {
       id: nanoid(),
       name: addForm.name,
-      review: addForm.review,
+      message: addForm.message,
       date: addForm.date,
     };
 
@@ -74,7 +74,7 @@ function ManageReviews() {
     const editedPlan = {
       id: editForm.id,
       name: editForm.name,
-      review: editForm.review,
+      message: editForm.message,
       date: editForm.date,
     };
 
@@ -91,7 +91,7 @@ function ManageReviews() {
 
     const formValues = {
       name: pick.name,
-      review: pick.review,
+      message: pick.message,
       date: pick.date,
     };
 
@@ -121,8 +121,14 @@ function ManageReviews() {
         <input
           className="py-2 md:-ml-2 px-2 border border-gray-400 rounded-md w-full md:w-2/6"
           type="search"
-          placeholder="Search Reviews"
+          placeholder="Search Messages"
         />
+        <button
+          className="py-3 px-10 mt-5 md:mt-0 w-full md:w-fit rounded-md bg-emerald-500 hover:bg-emerald-400 text-white"
+          onClick={() => setAddPlan(!AddPlan)}
+        >
+          Message
+        </button>
       </div>
       <section className="w-full flex justify-center">
         <div className="container w-full mx-auto px-4 sm:px-8">
@@ -137,15 +143,12 @@ function ManageReviews() {
                           NAME
                         </th>
 
-                        <th className="px-5 pr-20 md:pr-0 py-3 border-b-2 border-gray-200  text-left text-xs font-semibold  uppercase tracking-wider">
-                          REVIEW
+                        <th className="px-6 py-3 border-b-2 border-gray-200  text-left text-xs font-semibold uppercase tracking-wider">
+                          MESSAGE
                         </th>
 
                         <th className="px-12 py-3 border-b-2 border-gray-200  text-left text-xs font-semibold  uppercase tracking-wider">
                           DATE
-                        </th>
-                        <th className="px-8 sm:pl-7 py-3 border-b-2 border-gray-200  text-left text-xs font-semibold uppercase tracking-wider">
-                          RATING
                         </th>
                         <th className="px-7 sm:px-6 md:pl-6 py-3 border-b-2 border-gray-200  text-left text-xs font-semibold  uppercase tracking-wider">
                           ACTIONS
@@ -163,7 +166,7 @@ function ManageReviews() {
                             }
                           >
                             {EditPlansID === pick.id ? (
-                              <EditableRowReviews
+                              <EditableRowMessages
                                 editForm={editForm}
                                 handlePop={handlePop}
                                 handleEditFormChange={handleEditFormChange}
@@ -171,7 +174,7 @@ function ManageReviews() {
                               />
                             ) : null}
                           </div>
-                          <ReadOnlyRowReviews
+                          <ReadOnlyRowMessages
                             pick={pick}
                             handlePop={handlePop}
                             handleDeleteClick={handleDeleteClick}
@@ -188,11 +191,11 @@ function ManageReviews() {
         </div>
       </section>
 
-      {/* ADD PLAN SECTION  */}
+      {/* ADD Message SECTION  */}
       <section
         className={
           AddPlan === true
-            ? "fixed top-0 left-0 w-full h-screen flex justify-center items-center edit-table-modal"
+            ? "fixed flex top-0 left-0 w-full h-screen justify-center items-center edit-table-modal"
             : "hidden"
         }
       >
@@ -203,7 +206,7 @@ function ManageReviews() {
           />
 
           <div className="w-full sm:w-60 p-5 text-center sm:text-left bg-gray-100 rounded-l-lg">
-            <h2 className="text-lg">User Details</h2>
+            <h2 className="text-lg">Message A User</h2>
             <p className="py-2 text-xs text-gray-400">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit.
               Reiciendis, cum.
@@ -218,43 +221,19 @@ function ManageReviews() {
                   type="text"
                   name="name"
                   className="p-2 mt-1 mb-5 w-full text-sm border rounded-md"
-                  placeholder="Full Name"
+                  placeholder="Name"
                   required
                 />
               </label>
 
-              <label htmlFor="user-email ">
-                Email Address
-                <input
+              <label htmlFor="user-message ">
+                Message
+                <textarea
                   onChange={handleAddFormChange}
                   type="text"
-                  name="email"
-                  className="p-2 mt-1 mb-5 w-full text-sm border rounded-md"
-                  placeholder="Email Address"
-                  required
-                />
-              </label>
-
-              <label htmlFor="user-contact ">
-                Contact Information
-                <input
-                  onChange={handleAddFormChange}
-                  type="number"
-                  name="contact"
-                  className="p-2 mt-1 mb-5 w-full text-sm border rounded-md"
-                  placeholder="Contact Information"
-                  required
-                />
-              </label>
-
-              <label htmlFor="user-address ">
-                Address
-                <input
-                  onChange={handleAddFormChange}
-                  type="text"
-                  name="address"
-                  className="p-2 mt-1 mb-5 w-full text-sm border rounded-md"
-                  placeholder="Address"
+                  name="message"
+                  className="p-2 mt-1 mb-5 w-full h-52 text-sm border rounded-md"
+                  placeholder="Message"
                   required
                 />
               </label>
@@ -284,4 +263,4 @@ function ManageReviews() {
   );
 }
 
-export default ManageReviews;
+export default Messages;

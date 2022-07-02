@@ -16,6 +16,7 @@ import MainDashboard from "./Components/MainDashboard";
 import ManagePlans from "./Components/ManagePlans";
 import ManageUsers from "./Components/ManageUsers";
 import ManageReviews from "./Components/ManageReviews";
+import Messages from "./Components/Messages";
 
 function App() {
   const location = useLocation;
@@ -35,6 +36,7 @@ function App() {
             <Route path="manage-plans" element={<ManagePlans />} />
             <Route path="manage-users" element={<ManageUsers />} />
             <Route path="manage-reviews" element={<ManageReviews />} />
+            <Route path="messages" element={<Messages />} />
           </Route>
 
           <Route path="/admin-login" element={<Login />} />
