@@ -20,6 +20,8 @@ import Messages from "./Components/Messages";
 import UserDashboard from "./Pages/UserDashboard";
 import MainDashboardUser from "./Components/UserDashboardComponents/MainDashboardUser";
 import UserLogin from "./Pages/UserLogin";
+import Contacts from "./Components/UserDashboardComponents/Contacts";
+import QueryHistory from "./Components/UserDashboardComponents/QueryHistory";
 
 function App() {
   const location = useLocation;
@@ -44,10 +46,8 @@ function App() {
 
           <Route path="user-dashboard" element={<UserDashboard />}>
             <Route path="main-dashboard-user" element={<MainDashboardUser />} />
-            <Route path="manage-plans" element={<ManagePlans />} />
-            <Route path="manage-users" element={<ManageUsers />} />
-            <Route path="manage-reviews" element={<ManageReviews />} />
-            <Route path="messages" element={<Messages />} />
+            <Route path="query-history" element={<QueryHistory />} />
+            <Route path="contacts" element={<Contacts />} />
           </Route>
 
           <Route path="/admin-login" element={<Login />} />

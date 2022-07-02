@@ -8,6 +8,7 @@ import {
   MdDashboardCustomize,
   MdOutlineAddTask,
   MdOutlineRateReview,
+  MdHistory,
 } from "react-icons/md";
 import logo from "../Assets/Images/logo_dark.png";
 
@@ -100,17 +101,17 @@ const UserDashboard = () => {
                 backgroundColor: isActive ? "#10B981" : "",
               })}
               onClick={() => {
-                setActive(4);
+                setActive(2);
                 setActive2(0);
                 toggle2();
               }}
               className="pl-5 py-4 w-full flex justify-between text-gray-800 hover:text-emerald-500"
-              to="manage-plans"
+              to="query-history"
             >
-              <MdOutlineAddTask size="1.3em" className="mr-3 self-center" />
+              <MdHistory size="1.3em" className="mr-3 self-center" />
               <div className="flex w-full">
                 <div className="text-[13px] self-center font-light cursor-pointer">
-                  Manage Plans
+                  Query History
                 </div>
               </div>
             </NavLink>
@@ -123,63 +124,17 @@ const UserDashboard = () => {
                 backgroundColor: isActive ? "#10B981" : "",
               })}
               onClick={() => {
-                setActive(2);
-                setActive2(0);
-                toggle2();
-              }}
-              className="pl-5 py-4 w-full flex justify-between text-gray-800 hover:text-emerald-500"
-              to="manage-users"
-            >
-              <FaUserFriends size="1.3em" className="mr-3 self-center" />
-              <div className="flex w-full">
-                <div className="text-[13px] self-center font-light cursor-pointer">
-                  Manage Users
-                </div>
-              </div>
-            </NavLink>
-
-            {/* MENU ITEM 4 */}
-            <NavLink
-              end
-              style={({ isActive }) => ({
-                color: isActive ? "white" : "",
-                backgroundColor: isActive ? "#10B981" : "",
-              })}
-              onClick={() => {
                 setActive(3);
                 setActive2(0);
                 toggle2();
               }}
               className="pl-5 py-4 w-full flex justify-between text-gray-800 hover:text-emerald-500"
-              to="manage-Reviews"
-            >
-              <MdOutlineRateReview size="1.3em" className="mr-3 self-center" />
-              <div className="flex w-full">
-                <div className="text-[13px] self-center font-light cursor-pointer">
-                  Manage Reviews
-                </div>
-              </div>
-            </NavLink>
-
-            {/* MENU ITEM 5 */}
-            <NavLink
-              end
-              style={({ isActive }) => ({
-                color: isActive ? "white" : "",
-                backgroundColor: isActive ? "#10B981" : "",
-              })}
-              onClick={() => {
-                setActive(5);
-                setActive2(0);
-                toggle2();
-              }}
-              className="pl-5 py-4 w-full flex justify-between text-gray-800 hover:text-emerald-500"
-              to="messages"
+              to="contacts"
             >
               <AiOutlineMessage size="1.3em" className="mr-3 self-center" />
               <div className="flex w-full">
                 <div className="text-[13px] self-center font-light cursor-pointer">
-                  Messages
+                  Contacts
                 </div>
               </div>
             </NavLink>
@@ -232,7 +187,7 @@ const UserDashboard = () => {
                       toggle2();
                     }}
                     className="pl-5 py-4 w-full flex justify-between text-gray-800 hover:text-emerald-500"
-                    to="main-dashboard"
+                    to="main-dashboard-user"
                   >
                     <MdDashboardCustomize
                       size="1.3em"
@@ -253,20 +208,17 @@ const UserDashboard = () => {
                       backgroundColor: isActive ? "#10B981" : "",
                     })}
                     onClick={() => {
-                      setActive(4);
+                      setActive(2);
                       setActive2(0);
                       toggle2();
                     }}
                     className="pl-5 py-4 w-full flex justify-between text-gray-800 hover:text-emerald-500"
-                    to="manage-plans"
+                    to="query-history"
                   >
-                    <MdOutlineAddTask
-                      size="1.3em"
-                      className="mr-3 self-center"
-                    />
+                    <MdHistory size="1.3em" className="mr-3 self-center" />
                     <div className="flex w-full">
                       <div className="text-[13px] self-center font-light cursor-pointer">
-                        Manage Plans
+                        Query History
                       </div>
                     </div>
                   </NavLink>
@@ -279,61 +231,12 @@ const UserDashboard = () => {
                       backgroundColor: isActive ? "#10B981" : "",
                     })}
                     onClick={() => {
-                      setActive(2);
-                      setActive2(0);
-                      toggle2();
-                    }}
-                    className="pl-5 py-4 w-full flex justify-between text-gray-800 hover:text-emerald-500"
-                    to="manage-users"
-                  >
-                    <FaUserFriends size="1.3em" className="mr-3 self-center" />
-                    <div className="flex w-full">
-                      <div className="text-[13px] self-center font-light cursor-pointer">
-                        Manage Users
-                      </div>
-                    </div>
-                  </NavLink>
-
-                  {/* MENU ITEM 4 */}
-                  <NavLink
-                    end
-                    style={({ isActive }) => ({
-                      color: isActive ? "white" : "",
-                      backgroundColor: isActive ? "#10B981" : "",
-                    })}
-                    onClick={() => {
                       setActive(3);
                       setActive2(0);
                       toggle2();
                     }}
                     className="pl-5 py-4 w-full flex justify-between text-gray-800 hover:text-emerald-500"
-                    to="manage-Reviews"
-                  >
-                    <MdOutlineRateReview
-                      size="1.3em"
-                      className="mr-3 self-center"
-                    />
-                    <div className="flex w-full">
-                      <div className="text-[13px] self-center font-light cursor-pointer">
-                        Manage Reviews
-                      </div>
-                    </div>
-                  </NavLink>
-
-                  {/* MENU ITEM 5 */}
-                  <NavLink
-                    end
-                    style={({ isActive }) => ({
-                      color: isActive ? "white" : "",
-                      backgroundColor: isActive ? "#10B981" : "",
-                    })}
-                    onClick={() => {
-                      setActive(5);
-                      setActive2(0);
-                      toggle2();
-                    }}
-                    className="pl-5 py-4 w-full flex justify-between text-gray-800 hover:text-emerald-500"
-                    to="messages"
+                    to="contacts"
                   >
                     <AiOutlineMessage
                       size="1.3em"
@@ -341,7 +244,7 @@ const UserDashboard = () => {
                     />
                     <div className="flex w-full">
                       <div className="text-[13px] self-center font-light cursor-pointer">
-                        Messages
+                        Contacts
                       </div>
                     </div>
                   </NavLink>
