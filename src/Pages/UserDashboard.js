@@ -302,9 +302,21 @@ const UserDashboard = () => {
                     >
                       View Profile
                     </NavLink>
-                    <a className="pb-2 cursor-pointer hover:underline hover:text-emerald-500">
+                    <NavLink
+                      end
+                      style={({ isActive }) => ({
+                        color: isActive ? "#10B981" : "",
+                      })}
+                      onClick={() => {
+                        setActive(8);
+                        setActive2(0);
+                        toggle2();
+                      }}
+                      className="pb-2 cursor-pointer hover:underline hover:text-emerald-500"
+                      to="edit-profile-user"
+                    >
                       Edit Profile
-                    </a>
+                    </NavLink>
                     <a
                       onClick={() => navigate("/user-login")}
                       className="cursor-pointer hover:underline hover:text-emerald-500"

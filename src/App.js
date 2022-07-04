@@ -23,6 +23,7 @@ import UserLogin from "./Pages/UserLogin";
 import Contacts from "./Components/UserDashboardComponents/Contacts";
 import QueryHistory from "./Components/UserDashboardComponents/QueryHistory";
 import ViewProfileUser from "./Components/UserDashboardComponents/ViewProfileUser";
+import EditProfileUser from "./Components/UserDashboardComponents/EditProfileUser";
 
 function App() {
   const location = useLocation;
@@ -50,6 +51,7 @@ function App() {
             <Route path="query-history" element={<QueryHistory />} />
             <Route path="contacts" element={<Contacts />} />
             <Route path="view-profile-user" element={<ViewProfileUser />} />
+            <Route path="edit-profile-user" element={<EditProfileUser />} />
           </Route>
 
           <Route path="/admin-login" element={<Login />} />
