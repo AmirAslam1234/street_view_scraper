@@ -81,7 +81,7 @@ function Header() {
               }
             >
               <div className="w-3/6 space-y-5 absolute top-0 left-0 h-screen mobile-bg flex flex-col">
-                <span className="pt-5 pl-2">
+                <span className="pt-5 pl-4">
                   <img className="w-28" src={logo} alt="" />
                 </span>
                 <NavLink
