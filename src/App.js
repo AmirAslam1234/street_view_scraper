@@ -24,6 +24,8 @@ import Contacts from "./Components/UserDashboardComponents/Contacts";
 import QueryHistory from "./Components/UserDashboardComponents/QueryHistory";
 import ViewProfileUser from "./Components/UserDashboardComponents/ViewProfileUser";
 import EditProfileUser from "./Components/UserDashboardComponents/EditProfileUser";
+import ViewProfileAdmin from "./Components/ViewProfileAdmin";
+import EditProfileAdmin from "./Components/EditProfileAdmin";
 
 function App() {
   const location = useLocation;
@@ -44,6 +46,8 @@ function App() {
             <Route path="manage-users" element={<ManageUsers />} />
             <Route path="manage-reviews" element={<ManageReviews />} />
             <Route path="messages" element={<Messages />} />
+            <Route path="view-profile-admin" element={<ViewProfileAdmin />} />
+            <Route path="edit-profile-admin" element={<EditProfileAdmin />} />
           </Route>
 
           <Route path="user-dashboard" element={<UserDashboard />}>

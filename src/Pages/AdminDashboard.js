@@ -377,12 +377,36 @@ const AdminDashboard = () => {
                       size="1.6em"
                       className="absolute top-2 right-3 cursor-pointer hover:text-gray-400"
                     />
-                    <a className="pb-2 cursor-pointer hover:underline hover:text-emerald-500">
+                    <NavLink
+                      end
+                      style={({ isActive }) => ({
+                        color: isActive ? "#10B981" : "",
+                      })}
+                      onClick={() => {
+                        setActive(7);
+                        setActive2(0);
+                        toggle2();
+                      }}
+                      className="pb-2 cursor-pointer hover:underline hover:text-emerald-500"
+                      to="view-profile-admin"
+                    >
                       View Profile
-                    </a>
-                    <a className="pb-2 cursor-pointer hover:underline hover:text-emerald-500">
+                    </NavLink>
+                    <NavLink
+                      end
+                      style={({ isActive }) => ({
+                        color: isActive ? "#10B981" : "",
+                      })}
+                      onClick={() => {
+                        setActive(8);
+                        setActive2(0);
+                        toggle2();
+                      }}
+                      className="pb-2 cursor-pointer hover:underline hover:text-emerald-500"
+                      to="edit-profile-admin"
+                    >
                       Edit Profile
-                    </a>
+                    </NavLink>
                     <a
                       onClick={() => navigate("/admin-login")}
                       className="cursor-pointer hover:underline hover:text-emerald-500"

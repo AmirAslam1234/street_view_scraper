@@ -20,7 +20,7 @@ function QueryHistory() {
         <input
           className="py-2 md:-ml-2 px-2 border border-gray-400 rounded-md w-full md:w-2/6"
           type="search"
-          placeholder="Search Messages"
+          placeholder="Search Queries"
         />
       </div>
       <section className="w-full flex justify-center">
