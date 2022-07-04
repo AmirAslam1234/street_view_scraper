@@ -28,6 +28,7 @@ import ViewProfileAdmin from "./Components/ViewProfileAdmin";
 import EditProfileAdmin from "./Components/EditProfileAdmin";
 import Error404 from "./Pages/Eroor404";
 import ThankYou from "./Pages/ThankYou";
+import Invoice from "./Pages/Invoice";
 
 function App() {
   const location = useLocation;
@@ -64,6 +65,7 @@ function App() {
           <Route path="/user-login" element={<UserLogin />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/thank-you" element={<ThankYou />} />
+          <Route path="/invoice" element={<Invoice />} />
         </Routes>
       </Router>
     </div>
