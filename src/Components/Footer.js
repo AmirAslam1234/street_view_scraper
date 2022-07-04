@@ -13,7 +13,7 @@ const Footer = () => {
       <footer class="text-gray-100 body-font bg-gradient-to-tl to-black from-blue-900">
         <div class="container px-5 py-20 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
           <div class="w-80 md:pl-10 flex flex-col justify-center md:justify-start flex-shrink-0 md:mx-0 mx-auto text-center md:text-start">
-            <div className="w-full flex justify-center">
+            <div className="w-full flex justify-center md:justify-start">
               <img className="w-3/6 pb-5 " src={logoDark} alt="" />
             </div>
             <p className="text-sm font-extralight text-gray-400">
