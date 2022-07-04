@@ -26,7 +26,7 @@ import ViewProfileUser from "./Components/UserDashboardComponents/ViewProfileUse
 import EditProfileUser from "./Components/UserDashboardComponents/EditProfileUser";
 import ViewProfileAdmin from "./Components/ViewProfileAdmin";
 import EditProfileAdmin from "./Components/EditProfileAdmin";
-import Error404 from "./Pages/Eroor404";
+import Error404 from "./Pages/Error404";
 import ThankYou from "./Pages/ThankYou";
 import Invoice from "./Pages/Invoice";
 import Welcome from "./Pages/WelcomePage";
@@ -68,6 +68,7 @@ function App() {
           <Route path="/thank-you" element={<ThankYou />} />
           <Route path="/welcome" element={<Welcome />} />
           <Route path="/invoice" element={<Invoice />} />
+          <Route path="*" element={<Error404 />} />
         </Routes>
       </Router>
     </div>
