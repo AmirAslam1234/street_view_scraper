@@ -22,6 +22,7 @@ import MainDashboardUser from "./Components/UserDashboardComponents/MainDashboar
 import UserLogin from "./Pages/UserLogin";
 import Contacts from "./Components/UserDashboardComponents/Contacts";
 import QueryHistory from "./Components/UserDashboardComponents/QueryHistory";
+import ViewProfileUser from "./Components/UserDashboardComponents/ViewProfileUser";
 
 function App() {
   const location = useLocation;
@@ -48,6 +49,7 @@ function App() {
             <Route path="main-dashboard-user" element={<MainDashboardUser />} />
             <Route path="query-history" element={<QueryHistory />} />
             <Route path="contacts" element={<Contacts />} />
+            <Route path="view-profile-user" element={<ViewProfileUser />} />
           </Route>
 
           <Route path="/admin-login" element={<Login />} />

@@ -260,7 +260,14 @@ const UserDashboard = () => {
                 User-Dashboard
               </h2>
               <span className="flex space-x-3">
-                <FaUser size="1.2em" className="self-center" />
+                <FaUser
+                  size="1.2em"
+                  className={
+                    active === 7 || active === 8
+                      ? "text-emerald-500 self-center"
+                      : "text-gray-800 self-center"
+                  }
+                />
                 <h2
                   onClick={() => setUserModal(!UserModal)}
                   className="self-center text-sm text-gray-400 cursor-pointer hover:underline"
@@ -280,9 +287,21 @@ const UserDashboard = () => {
                       size="1.6em"
                       className="absolute top-2 right-3 cursor-pointer hover:text-gray-400"
                     />
-                    <a className="pb-2 cursor-pointer hover:underline hover:text-emerald-500">
+                    <NavLink
+                      end
+                      style={({ isActive }) => ({
+                        color: isActive ? "#10B981" : "",
+                      })}
+                      onClick={() => {
+                        setActive(7);
+                        setActive2(0);
+                        toggle2();
+                      }}
+                      className="pb-2 cursor-pointer hover:underline hover:text-emerald-500"
+                      to="view-profile-user"
+                    >
                       View Profile
-                    </a>
+                    </NavLink>
                     <a className="pb-2 cursor-pointer hover:underline hover:text-emerald-500">
                       Edit Profile
                     </a>
