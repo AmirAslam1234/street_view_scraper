@@ -26,6 +26,8 @@ import ViewProfileUser from "./Components/UserDashboardComponents/ViewProfileUse
 import EditProfileUser from "./Components/UserDashboardComponents/EditProfileUser";
 import ViewProfileAdmin from "./Components/ViewProfileAdmin";
 import EditProfileAdmin from "./Components/EditProfileAdmin";
+import Error404 from "./Pages/Eroor404";
+import ThankYou from "./Pages/ThankYou";
 
 function App() {
   const location = useLocation;
@@ -61,6 +63,7 @@ function App() {
           <Route path="/admin-login" element={<Login />} />
           <Route path="/user-login" element={<UserLogin />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/thank-you" element={<ThankYou />} />
         </Routes>
       </Router>
     </div>
