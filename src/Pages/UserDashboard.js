@@ -281,7 +281,7 @@ const UserDashboard = () => {
                   onClick={() => setUserModal(!UserModal)}
                   className=" w-screen h-screen absolute top-0 right-0 user-modal flex justify-end"
                 >
-                  <div className="w-2/12 h-fit flex flex-col relative mt-16 mr-10 bg-white border rounded-lg p-5 text-xs">
+                  <div className="w-5/12 sm:w-4/12 md:w-2/12 h-fit flex flex-col relative mt-16 mr-10 bg-white border rounded-lg p-5 text-xs">
                     <AiOutlineCloseCircle
                       onClick={() => setUserModal(!UserModal)}
                       size="1.6em"
