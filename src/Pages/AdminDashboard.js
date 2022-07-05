@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import "../App.css";
 import { useNavigate, Outlet, NavLink } from "react-router-dom";
 import { FiMenu } from "react-icons/fi";
-import { AiOutlineMessage, AiOutlineCloseCircle } from "react-icons/ai";
+import {
+  AiOutlineMessage,
+  AiOutlineCloseCircle,
+  AiFillSetting,
+} from "react-icons/ai";
 import { FaUser, FaUserFriends } from "react-icons/fa";
 import {
   MdDashboardCustomize,
@@ -134,6 +138,29 @@ const AdminDashboard = () => {
               <div className="flex w-full">
                 <div className="text-[13px] self-center font-light cursor-pointer">
                   Manage Users
+                </div>
+              </div>
+            </NavLink>
+
+            {/* MENU ITEM ?? */}
+            <NavLink
+              end
+              style={({ isActive }) => ({
+                color: isActive ? "white" : "",
+                backgroundColor: isActive ? "#10B981" : "",
+              })}
+              onClick={() => {
+                setActive(10);
+                setActive2(0);
+                toggle2();
+              }}
+              className="pl-5 py-4 w-full flex justify-between text-gray-800 hover:text-emerald-500"
+              to="manage-queries"
+            >
+              <AiFillSetting size="1.3em" className="mr-3 self-center" />
+              <div className="flex w-full">
+                <div className="text-[13px] self-center font-light cursor-pointer">
+                  Manage Queries
                 </div>
               </div>
             </NavLink>
@@ -290,6 +317,29 @@ const AdminDashboard = () => {
                     <div className="flex w-full">
                       <div className="text-[13px] self-center font-light cursor-pointer">
                         Manage Users
+                      </div>
+                    </div>
+                  </NavLink>
+
+                  {/* MENU ITEM ?? */}
+                  <NavLink
+                    end
+                    style={({ isActive }) => ({
+                      color: isActive ? "white" : "",
+                      backgroundColor: isActive ? "#10B981" : "",
+                    })}
+                    onClick={() => {
+                      setActive(10);
+                      setActive2(0);
+                      toggle2();
+                    }}
+                    className="pl-5 py-4 w-full flex justify-between text-gray-800 hover:text-emerald-500"
+                    to="manage-queries"
+                  >
+                    <FaUserFriends size="1.3em" className="mr-3 self-center" />
+                    <div className="flex w-full">
+                      <div className="text-[13px] self-center font-light cursor-pointer">
+                        Manage Queries
                       </div>
                     </div>
                   </NavLink>

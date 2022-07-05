@@ -33,6 +33,7 @@ import Welcome from "./Pages/WelcomePage";
 import ChangePAsswordUser from "./Components/UserDashboardComponents/ChangePAsswordUser";
 import ChangePasswordAdmin from "./Components/ChangePasswordAdmin";
 import PlanInfo from "./Components/UserDashboardComponents/PlanInfo";
+import ManageQueries from "./Components/ManageQueries";
 
 function App() {
   const location = useLocation;
@@ -51,6 +52,7 @@ function App() {
             <Route path="main-dashboard" element={<MainDashboard />} />
             <Route path="manage-plans" element={<ManagePlans />} />
             <Route path="manage-users" element={<ManageUsers />} />
+            <Route path="manage-queries" element={<ManageQueries />} />
             <Route path="manage-reviews" element={<ManageReviews />} />
             <Route path="messages" element={<Messages />} />
             <Route path="view-profile-admin" element={<ViewProfileAdmin />} />

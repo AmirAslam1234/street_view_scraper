@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import "../../App.css";
-import { Data5 } from "../PlansData";
+import "../App.css";
+import { Data5 } from "./PlansData";
 import "react-toastify/dist/ReactToastify.css";
 
-function QueryHistory() {
+function ManageQueries() {
   const [Plans, setPlans] = useState(Data5);
 
   const State = (props) => {
@@ -42,10 +42,6 @@ function QueryHistory() {
                           LINK
                         </th>
 
-                        <th className="px-6 py-3 border-b-2 border-gray-200  text-left text-xs font-semibold uppercase tracking-wider">
-                          Search String
-                        </th>
-
                         <th className="pl-9 pr-12 md:px-8 py-3 border-b-2 border-gray-200  text-left text-xs font-semibold uppercase tracking-wider">
                           STATUS
                         </th>
@@ -67,12 +63,6 @@ function QueryHistory() {
                             <td className="px-5 space-x-2 py-5 border-b border-gray-200 bg-white text-xs">
                               <p className="text-gray-900 whitespace-no-wrap">
                                 {pick.link}
-                              </p>
-                            </td>
-
-                            <td className="px-5 space-x-2 py-5 border-b border-gray-200 bg-white text-xs">
-                              <p className="text-gray-900 whitespace-no-wrap">
-                                {pick.search}
                               </p>
                             </td>
 
@@ -105,4 +95,4 @@ function QueryHistory() {
   );
 }
 
-export default QueryHistory;
+export default ManageQueries;

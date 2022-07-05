@@ -117,6 +117,7 @@ export const Data5 = [
   {
     id: 1,
     link: "https://www.google.com",
+    search: "Best hotels near me",
     status: "in Progress",
     date: "25-06-2022",
   },
@@ -124,6 +125,7 @@ export const Data5 = [
   {
     id: 2,
     link: "https://www.google.com",
+    search: "Best restaurants near me",
     status: "Not Active",
     date: "25-06-2022",
   },
@@ -131,6 +133,7 @@ export const Data5 = [
   {
     id: 3,
     link: "https://www.google.com",
+    search: "Best restaurants in my city",
     status: "Complete",
     date: "25-06-2022",
   },
@@ -138,6 +141,7 @@ export const Data5 = [
   {
     id: 4,
     link: "https://www.google.com",
+    search: "Best hotels with discount",
     status: "in Progress",
     date: "25-06-2022",
   },
