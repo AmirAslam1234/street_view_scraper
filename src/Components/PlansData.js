@@ -172,3 +172,38 @@ export const Data6 = [
     expiry: "25-07-2022",
   },
 ];
+
+export const Data7 = [
+  {
+    id: 1,
+    name: "Ali Ahmad",
+    query: 23,
+    top:
+      "Best hotels near me.\n\n" +
+      "Best restaurants near me. \n\n" +
+      "Top Hotel Discounts near me.",
+    status: "in Progress",
+    date: "25-06-2022",
+  },
+
+  {
+    id: 2,
+    name: "Ali Ahmad",
+    query: 23,
+    top: "Best hotels near me. \n\n" + "Best restaurants near me.",
+    status: "Not Active",
+    date: "25-06-2022",
+  },
+
+  {
+    id: 3,
+    name: "Ali Ahmad",
+    query: 23,
+    top:
+      "Best hotels near me. \n\n" +
+      "Best restaurants near me. \n\n" +
+      "Top Hotel Discounts near me.",
+    status: "Complete",
+    date: "25-06-2022",
+  },
+];

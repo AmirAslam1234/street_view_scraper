@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import "../App.css";
-import { Data5 } from "./PlansData";
+import { Data7 } from "./PlansData";
 import "react-toastify/dist/ReactToastify.css";
 
 function ManageQueries() {
-  const [Plans, setPlans] = useState(Data5);
+  const [Plans, setPlans] = useState(Data7);
 
   const State = (props) => {
     if (props.pick === "in Progress") {
@@ -35,16 +35,21 @@ function ManageQueries() {
                     <thead>
                       <tr className="bg-gray-100 text-gray-800 py-4">
                         <th className="px-5 py-3 border-b-2 border-gray-200  text-left text-xs font-semibold  uppercase tracking-wider">
-                          ID.
+                          Name
                         </th>
 
                         <th className="px-6 py-3 border-b-2 border-gray-200  text-left text-xs font-semibold uppercase tracking-wider">
-                          LINK
+                          Total Queries
                         </th>
 
-                        <th className="pl-9 pr-12 md:px-8 py-3 border-b-2 border-gray-200  text-left text-xs font-semibold uppercase tracking-wider">
-                          STATUS
+                        <th className="px-5 py-3 border-b-2 border-gray-200  text-left text-xs font-semibold uppercase tracking-wider">
+                          Top Searches
                         </th>
+
+                        <th className=" pl-9 pr-12 md:px-8 py-3 border-b-2 border-gray-200  text-left text-xs font-semibold uppercase tracking-wider">
+                          Status
+                        </th>
+
                         <th className="pl-12 pr-14 sm:px-10 md:pl-10 py-3 border-b-2 border-gray-200  text-left text-xs font-semibold uppercase tracking-wider">
                           DATE
                         </th>
@@ -54,19 +59,32 @@ function ManageQueries() {
                       {Plans.map((pick) => (
                         <>
                           <tr>
-                            <td className="px-5 space-x-2 py-5 border-b border-gray-200 bg-white text-xs">
+                            <td className="pl-3 sm:px-5 space-x-2 py-5 border-b border-gray-200 bg-white text-xs">
+                              <p className="px-12 sm:px-0"></p>
+
                               <p className="text-gray-900 whitespace-no-wrap">
-                                {pick.id}
+                                {pick.name}
                               </p>
                             </td>
 
-                            <td className="px-5 space-x-2 py-5 border-b border-gray-200 bg-white text-xs">
+                            <td className=" px-14 space-x-2 py-5 border-b border-gray-200 bg-white text-xs">
+                              <p className="px-8 sm:px-0"></p>
+
                               <p className="text-gray-900 whitespace-no-wrap">
-                                {pick.link}
+                                {pick.query}
+                              </p>
+                            </td>
+
+                            <td className="pr-10 sm:px-5 space-x-2 py-5 border-b border-gray-200 bg-white text-xs">
+                              <p className="px-20 sm:px-0"></p>
+
+                              <p className="text-gray-900 whitespace-no-wrap">
+                                {pick.top}
                               </p>
                             </td>
 
                             <td className=" px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                              <p className="px-10 sm:px-0"></p>
                               <p
                                 id="query_status_r1"
                                 className="text-gray-600 whitespace-no-wrap"
@@ -76,6 +94,8 @@ function ManageQueries() {
                             </td>
 
                             <td className=" px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                              <p className="px-10 sm:px-0"></p>
+
                               <p className="text-gray-600 whitespace-no-wrap">
                                 {pick.date}
                               </p>
