@@ -30,6 +30,8 @@ import Error404 from "./Pages/Error404";
 import ThankYou from "./Pages/ThankYou";
 import Invoice from "./Pages/Invoice";
 import Welcome from "./Pages/WelcomePage";
+import ChangePAsswordUser from "./Components/UserDashboardComponents/ChangePAsswordUser";
+import ChangePasswordAdmin from "./Components/ChangePasswordAdmin";
 
 function App() {
   const location = useLocation;
@@ -52,6 +54,10 @@ function App() {
             <Route path="messages" element={<Messages />} />
             <Route path="view-profile-admin" element={<ViewProfileAdmin />} />
             <Route path="edit-profile-admin" element={<EditProfileAdmin />} />
+            <Route
+              path="change-password-admin"
+              element={<ChangePasswordAdmin />}
+            />
           </Route>
 
           <Route path="user-dashboard" element={<UserDashboard />}>
@@ -60,6 +66,10 @@ function App() {
             <Route path="contacts" element={<Contacts />} />
             <Route path="view-profile-user" element={<ViewProfileUser />} />
             <Route path="edit-profile-user" element={<EditProfileUser />} />
+            <Route
+              path="change-password-user"
+              element={<ChangePAsswordUser />}
+            />
           </Route>
 
           <Route path="/admin-login" element={<Login />} />

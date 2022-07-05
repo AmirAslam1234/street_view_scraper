@@ -253,8 +253,8 @@ const UserDashboard = () => {
             ) : (
               ""
             )}
-
             {/* MOBILE MENU ENDS HERE */}
+
             <div className="w-full flex justify-between">
               <h2 className=" pl-3 md:px-0 self-center text-gray-800 text-lg">
                 User-Dashboard
@@ -263,7 +263,7 @@ const UserDashboard = () => {
                 <FaUser
                   size="1.2em"
                   className={
-                    active === 7 || active === 8
+                    active === 7 || active === 8 || active === 9
                       ? "text-emerald-500 self-center"
                       : "text-gray-800 self-center"
                   }
@@ -316,6 +316,22 @@ const UserDashboard = () => {
                       to="edit-profile-user"
                     >
                       Edit Profile
+                    </NavLink>
+
+                    <NavLink
+                      end
+                      style={({ isActive }) => ({
+                        color: isActive ? "#10B981" : "",
+                      })}
+                      onClick={() => {
+                        setActive(9);
+                        setActive2(0);
+                        toggle2();
+                      }}
+                      className="pb-2 cursor-pointer hover:underline hover:text-emerald-500"
+                      to="change-password-user"
+                    >
+                      Change Password
                     </NavLink>
                     <a
                       onClick={() => navigate("/user-login")}

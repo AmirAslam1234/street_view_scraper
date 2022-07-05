@@ -10,7 +10,7 @@ const ThankYou = () => {
       <div className="flex items-center justify-center w-full h-screen bg-gray-100">
         <div className="lg:px-40 lg:py-20 md:px-20 md:py-10 py-8 px-4 bg-white rounded-md shadow-xl">
           <div className="flex flex-col items-center">
-            <h1 className="font-bold font-mono text-gray-700 lg:text-8xl text-5xl">
+            <h1 className="font-semibold pb-2 font-sans text-gray-700 lg:text-8xl text-5xl">
               Thank You
             </h1>
 

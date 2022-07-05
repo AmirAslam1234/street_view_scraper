@@ -357,7 +357,14 @@ const AdminDashboard = () => {
                 Admin-Dashboard
               </h2>
               <span className="flex space-x-3">
-                <FaUser size="1.2em" className="self-center" />
+                <FaUser
+                  size="1.2em"
+                  className={
+                    active === 7 || active === 8 || active === 9
+                      ? "text-emerald-500 self-center"
+                      : "text-gray-800 self-center"
+                  }
+                />
                 <h2
                   onClick={() => setUserModal(!UserModal)}
                   className="self-center text-sm text-gray-400 cursor-pointer hover:underline"
@@ -406,6 +413,22 @@ const AdminDashboard = () => {
                       to="edit-profile-admin"
                     >
                       Edit Profile
+                    </NavLink>
+
+                    <NavLink
+                      end
+                      style={({ isActive }) => ({
+                        color: isActive ? "#10B981" : "",
+                      })}
+                      onClick={() => {
+                        setActive(9);
+                        setActive2(0);
+                        toggle2();
+                      }}
+                      className="pb-2 cursor-pointer hover:underline hover:text-emerald-500"
+                      to="change-password-admin"
+                    >
+                      Change Password
                     </NavLink>
                     <a
                       onClick={() => navigate("/admin-login")}
