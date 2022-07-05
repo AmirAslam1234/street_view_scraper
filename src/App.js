@@ -32,6 +32,7 @@ import Invoice from "./Pages/Invoice";
 import Welcome from "./Pages/WelcomePage";
 import ChangePAsswordUser from "./Components/UserDashboardComponents/ChangePAsswordUser";
 import ChangePasswordAdmin from "./Components/ChangePasswordAdmin";
+import PlanInfo from "./Components/UserDashboardComponents/PlanInfo";
 
 function App() {
   const location = useLocation;
@@ -63,6 +64,8 @@ function App() {
           <Route path="user-dashboard" element={<UserDashboard />}>
             <Route path="main-dashboard-user" element={<MainDashboardUser />} />
             <Route path="query-history" element={<QueryHistory />} />
+            <Route path="plan-info" element={<PlanInfo />} />
+
             <Route path="contacts" element={<Contacts />} />
             <Route path="view-profile-user" element={<ViewProfileUser />} />
             <Route path="edit-profile-user" element={<EditProfileUser />} />

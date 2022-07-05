@@ -2,14 +2,13 @@ import React, { useState } from "react";
 import "../App.css";
 import { useNavigate, Outlet, NavLink } from "react-router-dom";
 import { FiMenu } from "react-icons/fi";
-import { AiOutlineMessage, AiOutlineCloseCircle } from "react-icons/ai";
-import { FaUser, FaUserFriends } from "react-icons/fa";
 import {
-  MdDashboardCustomize,
-  MdOutlineAddTask,
-  MdOutlineRateReview,
-  MdHistory,
-} from "react-icons/md";
+  AiOutlineMessage,
+  AiOutlineCloseCircle,
+  AiOutlineInfoCircle,
+} from "react-icons/ai";
+import { FaUser } from "react-icons/fa";
+import { MdDashboardCustomize, MdHistory } from "react-icons/md";
 import logo from "../Assets/Images/logo_dark.png";
 
 const UserDashboard = () => {
@@ -129,6 +128,29 @@ const UserDashboard = () => {
                 toggle2();
               }}
               className="pl-5 py-4 w-full flex justify-between text-gray-800 hover:text-emerald-500"
+              to="plan-info"
+            >
+              <AiOutlineInfoCircle size="1.3em" className="mr-3 self-center" />
+              <div className="flex w-full">
+                <div className="text-[13px] self-center font-light cursor-pointer">
+                  Plan Info
+                </div>
+              </div>
+            </NavLink>
+
+            {/* MENU ITEM 4 */}
+            <NavLink
+              end
+              style={({ isActive }) => ({
+                color: isActive ? "white" : "",
+                backgroundColor: isActive ? "#10B981" : "",
+              })}
+              onClick={() => {
+                setActive(4);
+                setActive2(0);
+                toggle2();
+              }}
+              className="pl-5 py-4 w-full flex justify-between text-gray-800 hover:text-emerald-500"
               to="contacts"
             >
               <AiOutlineMessage size="1.3em" className="mr-3 self-center" />
@@ -232,6 +254,29 @@ const UserDashboard = () => {
                     })}
                     onClick={() => {
                       setActive(3);
+                      setActive2(0);
+                      toggle2();
+                    }}
+                    className="pl-5 py-4 w-full flex justify-between text-gray-800 hover:text-emerald-500"
+                    to="plan-info"
+                  >
+                    <MdHistory size="1.3em" className="mr-3 self-center" />
+                    <div className="flex w-full">
+                      <div className="text-[13px] self-center font-light cursor-pointer">
+                        Plan Info
+                      </div>
+                    </div>
+                  </NavLink>
+
+                  {/* MENU ITEM 4 */}
+                  <NavLink
+                    end
+                    style={({ isActive }) => ({
+                      color: isActive ? "white" : "",
+                      backgroundColor: isActive ? "#10B981" : "",
+                    })}
+                    onClick={() => {
+                      setActive(4);
                       setActive2(0);
                       toggle2();
                     }}

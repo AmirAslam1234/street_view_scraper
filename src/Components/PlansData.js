@@ -142,3 +142,29 @@ export const Data5 = [
     date: "25-06-2022",
   },
 ];
+
+export const Data6 = [
+  {
+    id: 1,
+    plan: "Monthly",
+    remaining: "25",
+    start: "25-06-2022",
+    expiry: "25-07-2022",
+  },
+
+  {
+    id: 2,
+    plan: "yearly",
+    remaining: "220",
+    start: "25-06-2022",
+    expiry: "25-06-2023",
+  },
+
+  {
+    id: 3,
+    plan: "Monthly",
+    remaining: "21",
+    start: "25-06-2022",
+    expiry: "25-07-2022",
+  },
+];
