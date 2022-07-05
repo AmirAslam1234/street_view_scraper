@@ -6,8 +6,65 @@ import { AiOutlineCloseCircle } from "react-icons/ai";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ReadOnlyRowContacts from "./ReadOnlyRowContacts";
+import ReactPaginate from "react-paginate";
 
 function Contacts() {
+  function Items({ currentItems }) {
+    return (
+      <>
+        {currentItems &&
+          currentItems.map((pick) => (
+            <>
+              <ReadOnlyRowContacts
+                pick={pick}
+                handlePop={handlePop}
+                handleDeleteClick={handleDeleteClick}
+                handleEditClick={handleEditClick}
+              />
+            </>
+          ))}
+      </>
+    );
+  }
+
+  function PaginatedItems({ itemsPerPage }) {
+    const [currentItems, setCurrentItems] = useState(null);
+    const [pageCount, setPageCount] = useState(0);
+
+    const [itemOffset, setItemOffset] = useState(0);
+
+    useEffect(() => {
+      const endOffset = itemOffset + itemsPerPage;
+      setCurrentItems(Data4.slice(itemOffset, endOffset));
+      setPageCount(Math.ceil(Data4.length / itemsPerPage));
+    }, [itemOffset, itemsPerPage]);
+
+    const handlePageClick = (event) => {
+      const newOffset = (event.selected * itemsPerPage) % Data4.length;
+      setItemOffset(newOffset);
+    };
+
+    return (
+      <>
+        <Items currentItems={currentItems} />
+        <ReactPaginate
+          breakLabel="..."
+          nextLabel="next >"
+          onPageChange={handlePageClick}
+          pageRangeDisplayed={3}
+          pageCount={pageCount}
+          previousLabel="< previous"
+          renderOnZeroPageCount={null}
+          className="flex absolute space-x-5 py-5 px-3 text-emerald-500"
+          pageLinkClassName="bg-white rounded-md px-4 py-2 border border-emerald-500"
+          activeLinkClassName="bg-emerald-500 rounded-md border border-white px-4 py-2 text-white"
+          previousClassName="hover:text-emerald-400"
+          nextClassName="hover:text-emerald-400"
+        />
+      </>
+    );
+  }
+
   const [Active, setActive] = useState(false);
   const [Pop, setPop] = useState(false);
   const [AddPlan, setAddPlan] = useState(false);
@@ -117,7 +174,7 @@ function Contacts() {
         <div className="container w-full mx-auto px-4 sm:px-8">
           <div className="">
             <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
-              <div className="inline-block min-w-full shadow-md rounded-lg overflow-hidden">
+              <div className="inline-block min-w-full rounded-lg overflow-hidden">
                 <form onSubmit={handleEditFormSubmit}>
                   <table className="min-w-full leading-normal">
                     <thead>
@@ -126,7 +183,7 @@ function Contacts() {
                           NAME
                         </th>
 
-                        <th className="px-6 py-3 border-b-2 border-gray-200  text-left text-xs font-semibold uppercase tracking-wider">
+                        <th className="px-5 py-3 border-b-2 border-gray-200  text-left text-xs font-semibold uppercase tracking-wider">
                           MESSAGE
                         </th>
 
@@ -139,16 +196,7 @@ function Contacts() {
                       </tr>
                     </thead>
                     <tbody>
-                      {Plans.map((pick) => (
-                        <>
-                          <ReadOnlyRowContacts
-                            pick={pick}
-                            handlePop={handlePop}
-                            handleDeleteClick={handleDeleteClick}
-                            handleEditClick={handleEditClick}
-                          />
-                        </>
-                      ))}
+                      <PaginatedItems itemsPerPage={4} />
                     </tbody>
                   </table>
                 </form>

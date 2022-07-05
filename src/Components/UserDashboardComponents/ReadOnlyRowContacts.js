@@ -1,12 +1,7 @@
 import React from "react";
-import { AiFillDelete, AiFillEdit } from "react-icons/ai";
+import { AiFillDelete } from "react-icons/ai";
 
-function ReadOnlyRowContacts({
-  pick,
-  handleEditClick,
-  handleDeleteClick,
-  handlePop,
-}) {
+function ReadOnlyRowContacts({ pick, handleDeleteClick }) {
   return (
     <>
       <tr>
