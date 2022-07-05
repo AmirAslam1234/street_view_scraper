@@ -124,14 +124,14 @@ export const Data5 = [
   {
     id: 2,
     link: "https://www.google.com",
-    status: "in Progress",
+    status: "Not Active",
     date: "25-06-2022",
   },
 
   {
     id: 3,
     link: "https://www.google.com",
-    status: "in Progress",
+    status: "Complete",
     date: "25-06-2022",
   },
 

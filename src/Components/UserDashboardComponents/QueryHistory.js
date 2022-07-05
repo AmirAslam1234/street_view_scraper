@@ -1,18 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "../../App.css";
 import { Data5 } from "../PlansData";
-import { nanoid } from "nanoid";
-import { AiOutlineCloseCircle } from "react-icons/ai";
-import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import ReadOnlyRowContacts from "./ReadOnlyRowContacts";
 
 function QueryHistory() {
-  const [Active, setActive] = useState(false);
-  const [Pop, setPop] = useState(false);
-  const [AddPlan, setAddPlan] = useState(false);
-  const [EditPlansID, setEditPlansID] = useState(null);
   const [Plans, setPlans] = useState(Data5);
+
+  const State = (props) => {
+    if (props.pick === "in Progress") {
+      return <p className="text-yellow-500">{props.pick}</p>;
+    } else if (props.pick === "Not Active") {
+      return <p className="text-red-500">{props.pick}</p>;
+    } else if (props.pick === "Complete") {
+      return <p className="text-green-500">{props.pick}</p>;
+    }
+  };
 
   return (
     <div className="flex flex-col w-full -mt-5">
@@ -65,8 +67,11 @@ function QueryHistory() {
                             </td>
 
                             <td className=" px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                              <p className="text-gray-600 whitespace-no-wrap">
-                                {pick.status}
+                              <p
+                                id="query_status_r1"
+                                className="text-gray-600 whitespace-no-wrap"
+                              >
+                                <State pick={pick.status} />
                               </p>
                             </td>
 
