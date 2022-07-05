@@ -7,8 +7,65 @@ import EditableRow from "./EditableRow";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import ReactPaginate from "react-paginate";
 
 function ManagePlans() {
+  function Items({ currentItems }) {
+    return (
+      <>
+        {currentItems &&
+          currentItems.map((pick) => (
+            <>
+              <ReadOnlyRow
+                pick={pick}
+                handlePop={handlePop}
+                handleDeleteClick={handleDeleteClick}
+                handleEditClick={handleEditClick}
+              />
+            </>
+          ))}
+      </>
+    );
+  }
+
+  function PaginatedItems({ itemsPerPage }) {
+    const [currentItems, setCurrentItems] = useState(null);
+    const [pageCount, setPageCount] = useState(0);
+
+    const [itemOffset, setItemOffset] = useState(0);
+
+    useEffect(() => {
+      const endOffset = itemOffset + itemsPerPage;
+      setCurrentItems(Data.slice(itemOffset, endOffset));
+      setPageCount(Math.ceil(Data.length / itemsPerPage));
+    }, [itemOffset, itemsPerPage]);
+
+    const handlePageClick = (event) => {
+      const newOffset = (event.selected * itemsPerPage) % Data.length;
+      setItemOffset(newOffset);
+    };
+
+    return (
+      <>
+        <Items currentItems={currentItems} />
+        <ReactPaginate
+          breakLabel="..."
+          nextLabel="next >"
+          onPageChange={handlePageClick}
+          pageRangeDisplayed={3}
+          pageCount={pageCount}
+          previousLabel="< previous"
+          renderOnZeroPageCount={null}
+          className="flex absolute space-x-5 py-5 px-3 text-emerald-500"
+          pageLinkClassName="bg-white rounded-md px-4 py-2 border border-emerald-500"
+          activeLinkClassName="bg-emerald-500 rounded-md border border-white px-4 py-2 text-white"
+          previousClassName="hover:text-emerald-400"
+          nextClassName="hover:text-emerald-400"
+        />
+      </>
+    );
+  }
+
   const [Active, setActive] = useState(false);
   const [Pop, setPop] = useState(false);
   const [AddPlan, setAddPlan] = useState(false);
@@ -42,18 +99,6 @@ function ManagePlans() {
     }
 
     console.log(addForm);
-  };
-
-  const handleEditFormChange = (e) => {
-    e.preventDefault();
-
-    const fieldName = e.target.getAttribute("name");
-    const fieldValue = e.target.value;
-
-    const newFormData = { ...editForm };
-    newFormData[fieldName] = fieldValue;
-
-    setEditForm(newFormData);
   };
 
   const handleAddFormSubmit = (e) => {
@@ -101,10 +146,6 @@ function ManagePlans() {
     };
 
     setEditForm(formValues);
-  };
-
-  const handleCancelClick = () => {
-    setEditPlansID(null);
   };
 
   const handleDeleteClick = (planID) => {
@@ -164,7 +205,7 @@ function ManagePlans() {
                       </tr>
                     </thead>
                     <tbody>
-                      {Plans.map((pick) => (
+                      {Data.map((pick) => (
                         <>
                           <div
                             className={
@@ -177,17 +218,10 @@ function ManagePlans() {
                               <EditableRow
                                 editForm={editForm}
                                 handlePop={handlePop}
-                                handleEditFormChange={handleEditFormChange}
-                                handleCancelClick={handleCancelClick}
                               />
                             ) : null}
                           </div>
-                          <ReadOnlyRow
-                            pick={pick}
-                            handlePop={handlePop}
-                            handleDeleteClick={handleDeleteClick}
-                            handleEditClick={handleEditClick}
-                          />
+                          <PaginatedItems itemsPerPage={4} />
                         </>
                       ))}
                     </tbody>

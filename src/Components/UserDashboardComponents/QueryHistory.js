@@ -87,7 +87,7 @@ function QueryHistory() {
           pageCount={pageCount}
           previousLabel="< previous"
           renderOnZeroPageCount={null}
-          className="flex space-x-5 py-5 px-3 text-emerald-500"
+          className="flex absolute space-x-5 py-5 px-3 text-emerald-500"
           pageLinkClassName="bg-white rounded-md px-4 py-2 border border-emerald-500"
           activeLinkClassName="bg-emerald-500 rounded-md border border-white px-4 py-2 text-white"
           previousClassName="hover:text-emerald-400"
