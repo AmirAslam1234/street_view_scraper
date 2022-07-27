@@ -10,7 +10,6 @@ from selenium.webdriver.common.keys import Keys
 import json
 import urllib.parse
 import math
-import pandas as pd
 from email_extractor import Scraper
 
 
