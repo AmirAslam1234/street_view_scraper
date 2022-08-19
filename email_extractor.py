@@ -9,7 +9,7 @@ class Scraper():
         self.others = ''
         self.obj_main_logger = logger()
         self.main_logger =self.obj_main_logger.main_logger()
-        self.proxy1 = '108.59.14.203:13040'
+        # self.proxy1 = '108.59.14.203:13040'
         self.proxy = '108.59.14.208:13040'
         self.headers = {
             'User-Agent': "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"}
@@ -18,12 +18,14 @@ class Scraper():
     def get_email(self, website):
         self.email = ''
         try:
+            r = requests.get(website,timeout=2)
             r = requests.get(website, headers=self.headers, proxies={
-                'http': self.proxy, 'https': self.proxy}, timeout=10)
+                'http': self.proxy}, timeout=5)
         except:
             try:
+                r = requests.get(website,timeout=2)
                 r = requests.get(website, headers=self.headers, proxies={
-                    'http': self.proxy1, 'https': self.proxy1},timeout=10)
+                    'http': self.proxy1},timeout=5)
             except:
                 message = f"Error in executing url: {website}"
                     # print(f'message is {message}')
@@ -64,7 +66,8 @@ class Scraper():
                         email_links.append(new_link)
             for link in email_links:
                 try:
-                    r = requests.get(link,headers=self.headers,proxies={'http':self.proxy,'https':self.proxy},timeout=10)
+                    # r = requests.get(link,timeout=2)
+                    r = requests.get(link,headers=self.headers,proxies={'http':self.proxy},timeout=5)
                 except:
                     # message = e
                     message = f"Error in executing url: {link}"
