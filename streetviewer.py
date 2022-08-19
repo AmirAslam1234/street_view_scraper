@@ -61,7 +61,6 @@ class streetViewSpider(scrapy.Spider):
         query_id_db = db_query['query_id']
         for index, search in enumerate(search_queries):
             ### Starting the timer ###
-            start_time = time.time()
             search = str(search)
             records_required = records_required_queries[index]
             self.records_required = records_required
