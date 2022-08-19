@@ -1,5 +1,7 @@
+import ipaddress
 import re
 import scrapy
+import socket   
 import mysql.connector as mysql
 from scrapy import signals
 from scrapy.crawler import CrawlerProcess
@@ -69,14 +71,14 @@ class streetViewSpider(scrapy.Spider):
             records_required = records_required_queries[index]
             self.records_required = records_required
             query_id = query_id_db[index]
-
             print(f"search is {search}")
             for i in range(1, math.ceil(records_required/20) + 1):
                 new_search = search.replace(' ', "%20")
                 url = f"https://www.google.com/search?tbm=map&authuser=0&hl=en&pb=!4m12!1m3!1d4128.387271743014!2d67.03455595!3d24.8840604!2m3!1f0!2f0!3f0!3m2!1i1920!2i219!4f13.1!7i20!8i{(i*20)-20}!10b1!12m8!1m1!18b1!2m3!5m1!6e2!20e3!10b1!16b1!19m4!2m3!1i360!2i120!4i8!20m57!2m2!1i203!2i100!3m2!2i4!5b1!6m6!1m2!1i86!2i86!1m2!1i408!2i240!7m42!1m3!1e1!2b0!3e3!1m3!1e2!2b1!3e2!1m3!1e2!2b0!3e3!1m3!1e8!2b0!3e3!1m3!1e10!2b0!3e3!1m3!1e10!2b1!3e2!1m3!1e9!2b1!3e2!1m3!1e10!2b0!3e3!1m3!1e10!2b1!3e2!1m3!1e10!2b0!3e4!2b1!4b1!9b0!22m6!1s-8DDYqLkOOGOxc8PyM-YyAQ:2!2zMWk6Myx0OjExODg3LGU6MixwOi04RERZcUxrT09HT3hjOFB5TS1ZeUFROjI!7e81!12e3!17s-8DDYqLkOOGOxc8PyM-YyAQ:43!18e15!24m70!1m22!13m8!2b1!3b1!4b1!6i1!8b1!9b1!14b1!20b1!18m12!3b1!4b1!5b1!6b1!9b1!12b1!13b1!14b1!15b1!17b1!20b1!21b1!2b1!5m5!2b1!3b1!5b1!6b1!7b1!10m1!8e3!14m1!3b1!17b1!20m2!1e3!1e6!24b1!25b1!26b1!29b1!30m1!2b1!36b1!39m3!2m2!2i1!3i1!43b1!52b1!54m1!1b1!55b1!56m2!1b1!3b1!65m5!3m4!1m3!1m2!1i224!2i298!71b1!72m4!1m2!3b1!5b1!4b1!89b1!26m4!2m3!1i80!2i92!4i8!30m0!34m17!2b1!3b1!4b1!6b1!8m5!1b1!3b1!4b1!5b1!6b1!9b1!12b1!14b1!20b1!23b1!25b1!26b1!37m1!1e81!42b1!47m0!49m5!3b1!6m1!1b1!7m1!1e3!50m4!2e2!3m2!1b1!3b1!67m2!7b1!10b1!69i609&q={new_search}&oq={new_search}&gs_l=maps.12..38i39i129k1j38i72k1l2.9320.22618.1.36754.41.38.0.0.0.0.569.5182.0j2j13j2j0j2.22.0....0...1ac.1.64.maps..20.21.6794.4..38i39k1j38i39i111i426k1j38i429k1j38i39i128i444k1j38i10i426k1j38i10i377k1j38i426k1j38i377k1.100.&tch=1&ech={i}&psi=-8DDYqLkOOGOxc8PyM-YyAQ.1656996092988.1"
                 # print("hey the url is: ",url)
+                print(f"first url is {url}")
                 self.name_logger.info(f"main url is {url}")
-                yield scrapy.Request(url=url, callback=self.parse_page, meta={"query_id": int(query_id), "link_num": i, "search": search,"proxy ":{'http':self.proxy}})
+                yield scrapy.Request(url=url, callback=self.parse_page, meta={"query_id": int(query_id), "link_num": i, "search": search,"proxy ":{'http':self.proxy,'https':self.proxy}},headers={'User-Agent': "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"})
         
 
     def parse_page(self, response):
@@ -95,13 +97,13 @@ class streetViewSpider(scrapy.Spider):
         for i in new_data[0][1]:
             if len(i) > 11 and i[14] is not None:
                 print(f"k is {k}")
+
         
                 name = i[14][11]
                 lat = i[14][9][2]
                 long = i[14][9][3]
                 name = i[14][11]
                 address = i[14][18]
-  
                 data = i[14][10]
                 lat = i[14][9][2]
                 long = i[14][9][3]
@@ -119,18 +121,16 @@ class streetViewSpider(scrapy.Spider):
                 except:
                     website = ''
                 print(f"website is {website}")
-
                 if website == '':
                     others = ''
                     email = ''
-
-
                 elif 'facebook' in website:
                     others = website
                     email = ''
                     website = ''
                 else:
                     email, others = self.scraper.get_email(website)
+                print("confirm data")
                 print(f"email is {email}")
                 print(f"others is {others}")
                 print(f"phone is {phone}")
@@ -139,6 +139,7 @@ class streetViewSpider(scrapy.Spider):
                 print(f"longitude is {long}")
                 url_part_name = urllib.parse.quote_plus(name)
                 main_url = f"https://www.google.com/maps/place/{url_part_name}/data=!4m6!3m5!1s{data}!8m2!3d{lat}!4d{long}!16s%2Fg%2F11gjszyzdm?authuser=0&hl=en&rclk=1"
+                print(f"second url is {main_url}")
                 # a="https://www.google.com/maps/place/KeyDevs+-+Software+House+in+Islamabad/data=!4m6!3m5!1s0x38dfbdf2f2276acd:0x1b09565426a586b6!8m2!3d33.6987199!4d72.9736682!16s%2Fg%2F11h5s402yj?authuser=0&hl=en&rclk=1"
                 latitude_longitude = re.findall(r"d([0-9.-]{2,})!", main_url)
                 main_url = main_url.split("/data")
@@ -184,9 +185,11 @@ class streetViewSpider(scrapy.Spider):
                     self.db.commit()
                     break
                 # self.isInsert = self.isInsert + 1
-                yield scrapy.Request(url=linkn, callback=self.parse_info, meta={"query_id": query_id, "data": data,"proxy ":{'http':self.proxy}}, dont_filter=True)
+                yield scrapy.Request(url=linkn, callback=self.parse_info, meta={"query_id": query_id, "data": data,"proxy ":{'http':self.proxy,'https':self.proxy}}, dont_filter=True,headers={'User-Agent': "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"})
 
     def parse_info(self, response):
+        hostname=socket.gethostname()   
+        IPAddr=socket.gethostbyname(hostname)  
         print('in parse info function')
         data = response.meta.get("data")
         latitude = data[0]
@@ -249,6 +252,9 @@ class streetViewSpider(scrapy.Spider):
         print(query_id)
         try:
             print("\n\n-------------------",self.isInsert,"-----------\n\n")
+            print(hostname)
+            print(IPAddr)
+            print("\n\n")
             self.cursor.execute(
                 "INSERT INTO search_result(name,image_360, query_id, address,phone,website,latitude,longitude,url,email,others)VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",
                 (name, image_360_exist, query_id, address, phone, website, latitude, longitude, url, email, others,))
